@@ -1,0 +1,8 @@
+HH01 Sting
+52 5000
+HH02 Pepsi
+79 4000
+HH03 Hu Tieu
+89 15000
+HH04 Ho Le Quoc Tin
+100 80000

@@ -1,0 +1,43 @@
+Thong tin cua hoa don
+Ma ban: Ban so 8
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+Tong tien: 0
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 9
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH01                    Sting		10		5000
+HH03                  Hu Tieu		10		15000
+Tong tien: 200000
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 2
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+Tong tien: 0
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH01                    Sting		19		5000
+HH02                    Pepsi		10		4000
+Tong tien: 135000
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+Tong tien: 0
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH01                    Sting		10		5000
+HH02                    Pepsi		2		4000
+HH03                  Hu Tieu		1		15000
+Tong tien: 73000
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 8
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH02                    Pepsi		9		4000
+Tong tien: 36000
+===============================
