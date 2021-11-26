@@ -1,14 +1,8 @@
-#include"QuanLyBan.h"
+#include<iostream>
+
+using namespace std;
 
 int main(){
-    int n;
-    QuanLyHangHoa p;
-    cout<<"Nhap so ban:";cin>>n;
-    QuanLyBan q(n);
-    q.Book(p);
-    q.Show();
-    q.Bill();
-    q.Show();
-    p.Save();
+    cout<<"Test Git"<<endl;
     return 0;
 }
