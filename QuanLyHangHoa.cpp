@@ -148,7 +148,7 @@ HangHoa& QuanLyHangHoa::operator[](int x){
     return *(this->_p+x);
 }
 //Nhập kho(Chức năng)
-void QuanLyHangHoa::EnterStock(){
+void QuanLyHangHoa::EnterStock(QuanLyChiTieu &a){
     system("cls");
     do{
     this->Show();
@@ -174,6 +174,9 @@ void QuanLyHangHoa::EnterStock(){
          system("cls");
          (*(this))[index].AddNumber(n);
          this->Show();
+            int add;
+            add = _p[index].getPrice() * n;
+            a.ChiTien(add);
          cout<<"Ban co muon nhap them hang[y/n]:";
          cin>>s;
         while (s!="y"&&s!="n")

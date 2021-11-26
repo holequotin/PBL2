@@ -1,8 +1,7 @@
-#include<iostream>
-
-using namespace std;
-
+#include"Ban.h"
 int main(){
-    cout<<"Test Git"<<endl;
+    Ban p;
+    QuanLyChiTieu a;
+    QuanLyHangHoa w;
     return 0;
 }

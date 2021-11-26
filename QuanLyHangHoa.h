@@ -1,4 +1,5 @@
 #include"HangHoa.h"
+#include"QuanLyChiTieu.h"
 #include<iomanip>
 #include<fstream>
 #include<string>
@@ -25,7 +26,7 @@ class QuanLyHangHoa{
     void Remove();
     //Show element has ID=string input from keyboard
     HangHoa Element(string);
-    void EnterStock();
+    void EnterStock(QuanLyChiTieu &a);
     void ExportStock();
     HangHoa& operator[](int);
     void Order(string ,int );

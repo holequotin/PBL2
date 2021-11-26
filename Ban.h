@@ -21,7 +21,7 @@ class Ban{
     //hàm hủy món ăn
     void Cancel(string,QuanLyHangHoa&);//Huy mon an co ma la string
     //in ra hóa đơn ra file Hoadon.txt rồi trả bàn
-    void Bill();
+    void Bill(QuanLyChiTieu &a);
     
 
 };
