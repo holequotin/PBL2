@@ -1,4 +1,5 @@
 #include"QuanLyBan.h"
+//Constructor
 QuanLyBan::QuanLyBan(int number)
 {
     //tạo ra 10 bàn trước rồi có chi thêm sau
@@ -12,9 +13,11 @@ QuanLyBan::QuanLyBan(int number)
 QuanLyBan::~QuanLyBan()
 {
 }
+//Đa năng hóa toán tử
 Ban& QuanLyBan::operator[](const int x){
     return (*(_p+x));
 }
+//Show tình trạng của dãy bàn
 void QuanLyBan::Show(){
     cout<<setw(25)<<"MABAN\t\t\tTINHTRANG"<<endl;
     for(int i=1;i<this->_number+1;i++){
@@ -25,7 +28,8 @@ void QuanLyBan::Show(){
         cout<<setw(15)<<(*this)[i]._id<<"\t\t\t"<<status<<endl;
         cout<<"\t======================================"<<endl;
     }
-}//hàm show tạm ổn
+}
+//Đặt món
 void QuanLyBan::Book(QuanLyHangHoa&p){
     do{
         this->Show();
@@ -43,7 +47,7 @@ void QuanLyBan::Book(QuanLyHangHoa&p){
         cout<<"Ban so  "<<x<<" dang dat cac mon sau"<<endl;
         cout<<"======================="<<endl;
         (*this)[x].Show();
-        cout<<"Ban co muon dat mon nua khong[y/n]:";cin>>s;
+        cout<<"Ban co muon dat ban nua khong[y/n]:";cin>>s;
         while (s!="y"&&s!="n")
         {
             cout<<"Nhap sai, vui long nhap lai:";
@@ -53,6 +57,7 @@ void QuanLyBan::Book(QuanLyHangHoa&p){
         else system("cls");
     }while(true) ;
 }
+//Tính tiền
 void QuanLyBan::Bill(){
      do{
         this->Show();
@@ -75,4 +80,58 @@ void QuanLyBan::Bill(){
         if(s=="n") break;
         else system("cls");
     }while(true) ;
+}
+//Đặt mang về
+void QuanLyBan::Ship(QuanLyHangHoa&p){
+    do {
+        string s;
+        system("cls");
+        cout<<"DAT HANG MANG VE:"<<endl;
+        (*this)[0].Book(p);
+        system("cls");
+        cout<<"Thong tin don hang:"<<endl;
+        (*this)[0].Bill();
+        cout<<"Ban co muon dat tiep khong[y/n]:";cin>>s;
+        while (s!="y"&&s!="n")
+        {
+            cout<<"Nhap sai,vui long nhap lai:";
+            cin>>s;
+        }
+        if(s=="n") break;
+    }while(true);
+}
+void QuanLyBan::Cancel(QuanLyHangHoa&p){
+    do{
+        this->Show();
+        string s;
+        cout<<"Nhap ban muon huy mon:";cin>>s;
+        int x=stoi(s);
+        if(x<1||x>this->_number){
+            system("cls");
+            cout<<"Ban khong hop le, vui long nhap lai:"<<endl;
+            continue;
+        }else if((*this)[x]._status==true) {}
+        else
+        {
+            system("cls");
+            (*this)[x].Show();
+            cout<<"Nhap ma mon muon huy:";cin>>s;
+            (*this)[x].Cancel(s,p);
+            if((*this)[x]._q.getNumber()==0){
+                (*this)[x]._status=true;
+                (*this)[x]._q.Reset();
+            }
+        }
+        system("cls");
+        cout<<"Da huy mon thanh cong"<<endl;
+        (*this)[x].Show();
+        cout<<"Ban co muon huy mon nua khong[y/n]:";cin>>s;
+        while (s!="y"&&s!="n")
+        {
+            cout<<"Nhap sai, vui long nhap lai:";
+            cin>>s;
+        }
+        if(s=="n") break;
+        else system("cls");
+    }while(true);
 }

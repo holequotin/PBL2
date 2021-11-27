@@ -13,11 +13,12 @@ public:
     void Show();
     //hàm đặt bàn(có thể một lúc nhiều bàn)
     void Book(QuanLyHangHoa&);
-    //hàm đặt thêm món(có thể một lúc nhiều bàn)=>cũng tương tự như cái hàm book=> dùng chung cho khỏe
-    void Order();
     //hàm đặt mang về
-    void Ship();
+    void Ship(QuanLyHangHoa &p);
     //hàm thanh toán( có thể một lúc nhiều bàn)
     void Bill();
+    //Hủy món
+    void Cancel(QuanLyHangHoa &);
+    //Đa năng hóa toán tử
     Ban& operator[](const int);
 };
