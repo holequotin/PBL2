@@ -41,3 +41,16 @@ MAHH             TEN HANG HOA		SO LUONG	DON GIA
 HH02                    Pepsi		9		4000
 Tong tien: 36000
 ===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH01                    Sting		1		5000
+Tong tien: 5000
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 6
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH01                    Sting		10		5000
+HH04           Ho Le Quoc Tin		10		80000
+Tong tien: 850000
+===============================

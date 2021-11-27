@@ -7,6 +7,7 @@ int main(){
     b.Cancel(h);
     b.Book(h);
     b.Show();
+    b.Bill();
     h.Save();
     return 0;
 }

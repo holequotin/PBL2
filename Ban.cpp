@@ -12,7 +12,7 @@ int Ban::Pay(){
 }
 //Đặt bàn (chức năng)
 void Ban::Book(QuanLyHangHoa &p){
-    _status=false;
+    //_status=false;
     do{
         system("cls");
         p.Show();
@@ -23,12 +23,20 @@ void Ban::Book(QuanLyHangHoa &p){
         //check ở danh sách đã gọi trước
         int x=_q.getNumber(s);
         if(x==-1){//trường hợp chưa có trong danh sách
-            if(p.getNumber(s)==-1) cout<<"Ma hang hoa khong ton tai"<<endl;
+            if(p.getNumber(s)==-1) {
+                cout<<"Ma hang hoa khong ton tai"<<endl;
+                // if(this->_q.getNumber()==0){
+                // _q.Reset();
+                // this->_status=true;
+                // this->_pay=0;
+                // }
+            }
             else{
                 HangHoa h=p.Element(s);
                 h.setNumber(n);
                 p.Order(s,n);
                 _q.Add(h);
+                _status=false;
             }
         }else{//trường hợp đã có trong danh sách
             if(n>p.getNumber(s)) cout<<"Hang trong kho khong du"<<endl;
