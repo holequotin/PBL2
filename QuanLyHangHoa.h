@@ -2,6 +2,7 @@
 #include<iomanip>
 #include<fstream>
 #include<string>
+#include"QuanLyChiTieu.h"
 class QuanLyHangHoa{
     protected:
     int _number;
@@ -25,7 +26,7 @@ class QuanLyHangHoa{
     void Remove();
     //Show element has ID=string input from keyboard
     HangHoa Element(string);
-    void EnterStock();
+    void EnterStock(QuanLyChiTieu&a);
     void ExportStock();
     HangHoa& operator[](int);
     void Order(string ,int );

@@ -84,7 +84,7 @@ void Ban::Cancel(string s,QuanLyHangHoa &p){
     p.Return(s,x);//trả về thực đơn
 }
 //thanh toán và in hóa đơn ra file
-void Ban::Bill(){
+void Ban::Bill(QuanLyChiTieu&a){
     if(this->_status==true){
         cout<<"Ban nay dang trong"<<endl;
     }
@@ -105,6 +105,8 @@ void Ban::Bill(){
     set_color(2);
     cout<<"Tonng tien: "<<this->Pay()<<endl;
     myfile<<"Tong tien: "<<this->Pay()<<endl;
+    int add = this->Pay();
+            a.ThuTien(add);
     cout<<"================================"<<endl;
     myfile<<"==============================="<<endl;
     myfile.close();
