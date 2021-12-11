@@ -1,5 +1,8 @@
 #include"HangHoa.h"
-
+void set_color ( int code ) {
+    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute( color , code );
+}
 HangHoa::HangHoa(string id,string name,int number,int price){
     this->_id=id;
     this->_name=name;

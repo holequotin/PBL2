@@ -1,5 +1,7 @@
 #include<iostream>
 #include<string>
+#include<windows.h>
+void set_color ( int code );
 using namespace std;
 class HangHoa{
     protected:

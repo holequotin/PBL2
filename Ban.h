@@ -1,5 +1,6 @@
 #include<iostream>
 #include"QuanLyMenu.h"
+
 using namespace std;
 class Ban{
     public:

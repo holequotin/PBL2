@@ -31,7 +31,9 @@ void QuanLyHangHoa::Save(){
 }
 //Hien thi danh sach hang hoa(Chức năng)
 void QuanLyHangHoa::Show(){
+    set_color(14);
     cout<<"MAHH"<<setw(25)<<"TEN HANG HOA"<<"\t\t"<<"SO LUONG"<<"\t"<<"DON GIA"<<endl;
+    set_color(7);
     for(int i=0;i<this->_number;i++){
         cout<<(*(_p+i)).getID()<<setw(25)<<(*(_p+i)).getName()<<"\t\t"<<(*(_p+i)).getNumber()
             <<"\t\t"<<(*(_p+i)).getPrice()<<endl;
@@ -259,6 +261,7 @@ void QuanLyHangHoa::Order(string s,int n){
         }
     }
 }
+//Hàm trả lại kho hàng hóa có mã là s với số lượng n
 void QuanLyHangHoa::Return(string s,int n){
     for(int i=0;i<this->_number;i++){
         if((*this)[i].getID()==s){
@@ -267,6 +270,7 @@ void QuanLyHangHoa::Return(string s,int n){
         }
     }
 }
+//Reset lại kho
 void QuanLyHangHoa::Reset(){
     this->_number=0;
     this->_p=nullptr;

@@ -1,4 +1,9 @@
 #include"QuanLyBan.h"
+// #include<windows.h>
+// void set_color ( int code ) {
+//     HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+//     SetConsoleTextAttribute( color , code );
+// }
 //Constructor
 QuanLyBan::QuanLyBan(int number)
 {
@@ -19,14 +24,23 @@ Ban& QuanLyBan::operator[](const int x){
 }
 //Show tình trạng của dãy bàn
 void QuanLyBan::Show(){
+    set_color(14);
     cout<<setw(25)<<"MABAN\t\t\tTINHTRANG"<<endl;
+    cout<<"\t====================================="<<endl;
     for(int i=1;i<this->_number+1;i++){
         string status;
-        if(((*this)[i]._status==true)) status="Dang trong";
-        else status="Chua thanh toan";
+        if(((*this)[i]._status==true)) 
+        {status="Dang trong";
+        set_color(2);
+        }
+        else 
+        {status="Chua thanh toan";
+        set_color(4);
+        }
         //hàm ỉn ra
         cout<<setw(15)<<(*this)[i]._id<<"\t\t\t"<<status<<endl;
         cout<<"\t======================================"<<endl;
+        set_color(7);
     }
 }
 //Đặt món
@@ -44,9 +58,12 @@ void QuanLyBan::Book(QuanLyHangHoa&p){
             (*this)[x].Book(p);
         }
         system("cls");
+        set_color(4);
         cout<<"Ban so  "<<x<<" dang dat cac mon sau"<<endl;
         cout<<"======================="<<endl;
+        set_color(7);
         (*this)[x].Show();
+        set_color(2);
         cout<<"Ban co muon dat ban nua khong[y/n]:";cin>>s;
         while (s!="y"&&s!="n")
         {
@@ -55,6 +72,7 @@ void QuanLyBan::Book(QuanLyHangHoa&p){
         }
         if(s=="n") break;
         else system("cls");
+        set_color(7);
     }while(true) ;
 }
 //Tính tiền
