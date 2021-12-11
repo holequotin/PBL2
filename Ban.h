@@ -1,5 +1,7 @@
 #include<iostream>
 #include"QuanLyMenu.h"
+#include"QuanLyPhienLamViec.h"
+#pragma once
 using namespace std;
 class Ban{
     public:
@@ -21,7 +23,7 @@ class Ban{
     //hàm hủy món ăn
     void Cancel(string,QuanLyHangHoa&);//Huy mon an co ma la string
     //in ra hóa đơn ra file Hoadon.txt rồi trả bàn
-    void Bill(QuanLyChiTieu &a);
+    void Bill(QuanLyChiTieu &a,QuanLyPhienLamViec &b);
     
 
 };
