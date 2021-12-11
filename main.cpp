@@ -1,7 +1,7 @@
-#include"Ban.h"
+#include"QuanLyPhienLamViec.h"
+#include<iostream>
+using namespace std;
 int main(){
-    Ban p;
-    QuanLyChiTieu a;
-    QuanLyHangHoa w;
-    return 0;
-}
+    QuanLyPhienLamViec a;
+    a.DangNhap();
+}    
