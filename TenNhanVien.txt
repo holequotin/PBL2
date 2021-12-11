@@ -1,0 +1,16 @@
+1
+Khoa
+user
+pass
+2
+Tin
+user1
+pass1
+3
+A
+user2
+pass2
+4
+B
+user3
+pass3
