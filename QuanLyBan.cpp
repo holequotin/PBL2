@@ -76,7 +76,7 @@ void QuanLyBan::Book(QuanLyHangHoa&p){
     }while(true) ;
 }
 //Tính tiền
-void QuanLyBan::Bill(){
+void QuanLyBan::Bill(QuanLyChiTieu&a,QuanLyPhienLamViec&b){
      do{
         this->Show();
         string s;
@@ -87,7 +87,7 @@ void QuanLyBan::Bill(){
             cout<<"Ban khong hop le, vui long nhap lai:"<<endl;
             continue;
         }else{
-            (*this)[x].Bill();
+            (*this)[x].Bill(a,b);
         }
         cout<<"Ban co muon thanh toan nua khong[y/n]:";cin>>s;
         while (s!="y"&&s!="n")
@@ -100,7 +100,7 @@ void QuanLyBan::Bill(){
     }while(true) ;
 }
 //Đặt mang về
-void QuanLyBan::Ship(QuanLyHangHoa&p){
+void QuanLyBan::Ship(QuanLyHangHoa&p,QuanLyChiTieu&a,QuanLyPhienLamViec&b){
     do {
         string s;
         system("cls");
@@ -108,7 +108,7 @@ void QuanLyBan::Ship(QuanLyHangHoa&p){
         (*this)[0].Book(p);
         system("cls");
         cout<<"Thong tin don hang:"<<endl;
-        (*this)[0].Bill();
+        (*this)[0].Bill(a,b);
         cout<<"Ban co muon dat tiep khong[y/n]:";cin>>s;
         while (s!="y"&&s!="n")
         {

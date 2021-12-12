@@ -1,11 +1,6 @@
 #include"QuanLyBan.h"
-// void DangNhap(){
 
-// }
 int main(){
-    QuanLyHangHoa p;
-    QuanLyBan b;
-    b.Book(p);
-    b.Bill();
+    cout<<"Hello World"<<endl;
     return 0;
 }
