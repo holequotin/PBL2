@@ -2,7 +2,7 @@
     QuanLyPhienLamViec::QuanLyPhienLamViec(){};
     QuanLyPhienLamViec::~QuanLyPhienLamViec(){};
 
-void QuanLyPhienLamViec::DangNhap(){
+int QuanLyPhienLamViec::DangNhap(){
     string tk,mk,tkmk,str0,str,str1,str2;
     int a=0,b;
     time_t curr_time;                               
@@ -13,7 +13,18 @@ void QuanLyPhienLamViec::DangNhap(){
     cin>> tk;
     cout<< "Mat Khau: ";
     cin>> mk;
-    ifstream kiemtra("TenNhanVien.txt");  
+    ifstream kiemtra("TenNhanVien.txt");
+    getline(kiemtra,str0);
+    getline(kiemtra,str);
+    getline(kiemtra,str1);
+    getline(kiemtra,str2);
+    if(tk==str1&&mk==str2){
+        _name=str;  //dùng để lưu tên nv đăng nhập, khi xuất tiền dô file thì lấy dùng
+        ofstream Fileqltime("QuanLytime.txt",ios::app);     //lưu time đang nhap của nv
+        Fileqltime<< str << endl << "da dang nhap vao luc :" << tm;
+        Fileqltime.close();  
+        return 1;
+    }
     while (!kiemtra.eof())
     {
         getline(kiemtra,str0);
@@ -32,6 +43,7 @@ void QuanLyPhienLamViec::DangNhap(){
     kiemtra.close();
     if(a==0)cout<< "Ban da nhap sai tai khoan hoac mat khau. Vui long nhap lai"; 
     }while(a==0);
+    return -1;
 }    
 void QuanLyPhienLamViec::LuuTruTienNV(int TongTien){
     string str;
