@@ -49,17 +49,16 @@ void QLNV::Add(NhanVien h1){
 //Thêm nhiều hàng hóa(Chức năng)
 void QLNV::Addelement(){
     do{
-        system("cls");
+        //system("cls");
         string name,user,x,pass;
         int id;
         this->Show();
-        cout<<"Nhap ma Nhan Vien";cin>>id;
-        cin.ignore();
+        id = _number + 1; 
         cout<<"Nhap ten Nhan Vien:";getline(cin,name);
         name=" "+name;
         cout<<"Nhap tai khoan:";cin>>user;
-        cout<<"Nhap don gia:";cin>>pass;
-        system("cls");
+        cout<<"Nhap mat khau:";cin>>pass;
+        //system("cls");
         this->Add(id,name,user,pass);
         this->Show();
         cout<<"Ban co muon them nua khong[y/n]:";
@@ -91,6 +90,7 @@ void QLNV::Delete(int s){
         return;
     }
     for(int i=k;i<this->_number-1;i++){
+        (_p+i+1)->updeatID();
         *(_p+i)=*(_p+i+1);
     }
     _number--;
@@ -102,11 +102,11 @@ void QLNV::Remove(){
         string x;
         int s;
         this->Show();
-        cout<<"Nhap ma hang hoa muon xoa:";cin>>s;
+        cout<<"Nhap ma nhan vien muon xoa:";cin>>s;
         this->Delete(s);
         system("cls");
         this->Show();
-        cout<<"Da xoa hang hoa khoi kho!!"<<endl;
+        cout<<"Da xoa nhan vien!!"<<endl;
         cout<<"Ban co muon xoa nua khong[y/n]:";
         cin>>x;
          while (x!="y"&&x!="n")
