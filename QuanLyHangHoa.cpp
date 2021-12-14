@@ -278,3 +278,37 @@ void QuanLyHangHoa::Reset(){
     this->_number=0;
     this->_p=nullptr;
 }
+//Update sao cho mã hàng hóa không được trùng
+void QuanLyHangHoa::Update(){
+        do{
+        int i; 
+        string s,x;
+        this->Show();
+        cout<<"Nhap ma hang hoa muon cap nhat:";cin>>s;
+        cin.ignore();
+        for(i=0;i<this->_number;i++){
+            if((*this)[i].getID()==s){
+                (*this)[i].Update();
+                break;
+            }
+        }
+        if(i==this->_number){
+            system("cls");
+            cout<<"Ma hang hoa khong ton tai!!"<<endl;
+            continue;
+        }
+        system("cls");
+        this->Show();
+        cout<<"Da cap nhat hang hoa!!"<<endl;
+        cout<<"Ban co muon cap nhat nua khong[y/n]:";
+        cin>>x;
+         while (x!="y"&&x!="n")
+        {
+            cout<<"Chon sai chuc nang, vui long nhap lai:";
+            cin>>x;
+        }
+        system("cls");
+        if(x=="y") continue;
+        else break;
+    }while(true);
+}

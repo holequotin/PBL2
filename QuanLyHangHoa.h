@@ -16,18 +16,17 @@ class QuanLyHangHoa{
     //lấy số lượng của hàng hóa có mã là string
     int getNumber(string);
     void setNumber(string,int);
-    void Show();
-    // /void ShowMenu();
+    void Show();//chức năng
     void Add(HangHoa);
     void Add(string,string,int,int);
-    void AddElement();
+    void AddElement();//chức năng
     void Delete(string);//Delete one elemnet have id=string s
-    //xóa một lúc nhiều hàng hóa
-    void Remove();
-    //Show element has ID=string input from keyboard
+    void Remove();//chức năng
+    void Update();
+    //In ra thông tin của hàng hóa có mã là s
     HangHoa Element(string);
-    void EnterStock(QuanLyChiTieu&a);
-    void ExportStock();
+    void EnterStock(QuanLyChiTieu&a);//Nhập kho
+    void ExportStock(); //Xuất kho
     HangHoa& operator[](int);
     void Order(string ,int );
     void Return(string ,int);

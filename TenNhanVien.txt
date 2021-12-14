@@ -1,3 +1,7 @@
+0
+QuanLi
+Admin
+12345
 1
 Khoa
 user
@@ -14,3 +18,7 @@ pass2
 B
 user3
 pass3
+5
+Ho Le Quoc Tin
+holequoctin
+holequoctin

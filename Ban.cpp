@@ -104,7 +104,9 @@ void Ban::Bill(QuanLyChiTieu&a,QuanLyPhienLamViec&b){
     }
     set_color(2);
     cout<<"Tonng tien: "<<this->Pay()<<endl;
+    cout<<"Nhan vien thu tien: "<<b.getName()<<endl;
     myfile<<"Tong tien: "<<this->Pay()<<endl;
+    myfile<<"Nhan vien thu tien: "<<b.getName()<<endl;
     int add = this->Pay();
             a.ThuTien(add);
             b.LuuTruTienNV(add);

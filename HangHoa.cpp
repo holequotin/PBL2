@@ -14,8 +14,10 @@ void HangHoa::Show(){
 }
 void HangHoa::Update(){
     int n;
-    cout<<"Nhap ma san pham:";cin>>this->_id;
-    cout<<"Nhap ten san pham:";cin>>this->_name;
+    string s;
+    cout<<"Cap nhat ten san pham:";
+    getline(cin,s);
+    this->_name=" "+s;
     cout<<"Cap nhat so luong:";
     cin>>n;
     this->_number=n;

@@ -4,27 +4,29 @@ Mô tả chương trình:
 Khi khởi động chương trình sẽ yêu cầu nhập tài khoản và mk để có thể vào quản lí
 ===========================================================================
 Màn hình chính:
-In ra màn hình tổng quan bán hàng của ngày
--Đơn hàng đã bán
+-Màn hình đầu tiên là yêu cầu đăng nhập
+<!-- -Đơn hàng đã bán
 -Doanh thu
 -Tình trạng bàn đang sử dụng
--Mặt hàng bán chạy
-Chức năng chính là quản lí hoạt động bán hàng
+-Mặt hàng bán chạy -->
+# **# Chức năng chính là quản lí hoạt động bán hàng**
 Sẽ gồm các chức năng quản lí chính:
--Quản lí hàng hóa:OK
+## -Quản lí hàng hóa
 	+Loại hàng nào còn trong kho và còn bao nhiêu.Thêm xóa và sửa thông tin hàng hóa
 	+Nhập hàng và trả hàng(vào kho):Nhập kho và xuất kho, lưu lại thông tin nhập kho và xuất kho=>Tạo một file mới có tên là nhâp kho và xuất kho
+	+Lịch sử nhập xuất hàng hóa
 	Mô tả: Khi chọn chức năng nhập hoặc xuất kho thì chương trình sẽ yêu cầu nhập mã sản phẩm(có thể cùng lúc nhiều sp) rồi nhập hoặc xuất một lần
 	=>Tương tự như chức năng đặt bàn
 *************
-Thêm chức năng lịch sử nhập xuất hàng hóa
--Quản lí bàn:
+## -Quản lí bàn:
 	+Xem thông tin hiện tại của các bàn
-	+Chuyển bàn
-	+Tách bàn
--Quản lí thu chi, hóa đơn: Có vẻ khả thi khi
+	+Chức năng bán hàng:Đặt món, thêm món, bán mang về và thanh toán
+## -Quản lí thu chi, hóa đơn:
 	+tiền đầu ngày, tiền cuối ngày, lãi tương ứng với ngày bán=>Xem chi tiết:tiền thu và tiền chi, xem chi tiết các khoản thu chi
 	+Lưu thông tin của các ngày=>Sử dụng danh sách liên kết sau đó in chồng lên file txt
+## Quản lí nhân viên
+	+Thêm xóa sửa nhân viên
+	+Xem các thông số của nhân viên:
 -Chức năng quan trọng nhất là chức năng bán hàng(tương tự như PBL1):Hiện ra tình trạng bàn trước rồi tới hiện hóa đơn=> Chọn món
 	+Cũng sẽ gồm các chức năng:Đặt món ,thêm món, Bán mang về và thanh toán
 =============================================================================
