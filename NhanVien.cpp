@@ -30,3 +30,6 @@ string NhanVien::getUser(){
 string NhanVien::getPass(){
     return this->_pass;
 }
+void NhanVien::updeatID(){
+    this->_id--;
+}
