@@ -1,0 +1,6 @@
+1 Khoa
+user pass
+2 NVA
+user2 pass2
+3 Tin
+user3 pass3
