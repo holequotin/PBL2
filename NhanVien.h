@@ -18,6 +18,7 @@ class NhanVien{
         NhanVien(int = 0, string = " ", string = "", string = " ");
         ~NhanVien();
         int getID();
+        void updeatID();
         string getName();
         string getUser();
         string getPass();
