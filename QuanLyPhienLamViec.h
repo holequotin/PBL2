@@ -23,4 +23,6 @@ class QuanLyPhienLamViec{
         void xuatHD(int);
         void reset();
         string getName();
+        string NhapPass();
+        void KiemTraPass(string);
 };
