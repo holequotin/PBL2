@@ -2,6 +2,7 @@
 #pragma once
 class QLNV{
     protected:
+    int _dem=0;
     int _number;
     NhanVien *_p;
     public:
@@ -16,5 +17,6 @@ class QLNV{
     void Remove();                        //xoa nhieu nv
     NhanVien& operator[](int);            //đa năng hoá toán tử
     void Reset();                         //reset dsnv
-    int getNumber();                      
+    int getNumber();    
+    void Update();                  
 };
