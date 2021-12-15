@@ -179,8 +179,8 @@ void QuanLyPhienLamViec::xuatHD(int n){
     while (!xuat.eof())
     {
         xuat>>id;
-        getline(xuat,name);
-        copy = name.substr(1);                     // kiểm tra id
+        getline(xuat,name);                         // kiểm tra id như các hàm trên
+        copy = name.substr(1);                     // loại bỏ khoảng trắng trc tên
         xuat>>user;
         xuat>>pass;
         if(id==n)
@@ -196,25 +196,25 @@ void QuanLyPhienLamViec::xuatHD(int n){
     //fstream open1("fileNhap.txt",ios::app);
     while (!open.eof())
     {   
-        ofstream open1("fileNhap.txt",ios::app);
+        ofstream open1("fileNhap.txt",ios::app);            //dùng 1 file tạm để lưu 1 hoá đơn của nv vào
         getline(open,line1);
-        if(line1=="Thong tin cua hoa don")
+        if(line1=="Thong tin cua hoa don")                  //lặp khi gặp dòng đầu tiên của hoá đơn, sẽ reset file để thêm 1 HĐ mới
         {
             this->reset();
             open1<<line1<<endl;
         }
-        else open1<<line1<<endl;
+        else open1<<line1<<endl;                            //ko phải đầu HĐ thì sẽ thêm vào file như bth
         open1.close();
         line2= line1.substr(0,4);
-        if(line2=="Nhan")
-        {      
+        if(line2=="Nhan")                                   //tại cuối hoá đơn kiểm tra tên có giống với tên nv cần xem k
+        {                                                   
             line4 = "Nhan vien thu tien: " + copy;
             if(line1==line4)
             {
                 ifstream open1("fileNhap.txt");
                 while (!open1.eof())
                 {   
-                    getline(open1,line3);
+                    getline(open1,line3);                   //nếu đúng thì in HĐ đã lưu ở file tạm ra
                     cout<< line3<<endl;
                 }
                 open1.close();
