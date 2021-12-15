@@ -87,6 +87,7 @@ void QuanLyBan::Bill(QuanLyChiTieu&a,QuanLyPhienLamViec&b){
             cout<<"Ban khong hop le, vui long nhap lai:"<<endl;
             continue;
         }else{
+            system("cls");
             (*this)[x].Bill(a,b);
         }
         cout<<"Ban co muon thanh toan nua khong[y/n]:";cin>>s;
@@ -141,8 +142,13 @@ void QuanLyBan::Cancel(QuanLyHangHoa&p){
             }
         }
         system("cls");
+        if((*this)[x]._q.getNumber()==0){
+            cout<<"Ban nay dang trong!!"<<endl;
+        }
+        else{
         cout<<"Da huy mon thanh cong"<<endl;
         (*this)[x].Show();
+        }
         cout<<"Ban co muon huy mon nua khong[y/n]:";cin>>s;
         while (s!="y"&&s!="n")
         {

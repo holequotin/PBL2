@@ -20,7 +20,7 @@ Sẽ gồm các chức năng quản lí chính:
 *************
 ## -Quản lí bàn:
 	+Xem thông tin hiện tại của các bàn
-	+Chức năng bán hàng:Đặt món, thêm món, bán mang về và thanh toán
+	+Chức năng bán hàng:Đặt món, thêm món, bán mang về, hủy món và thanh toán
 ## -Quản lí thu chi, hóa đơn:
 	+tiền đầu ngày, tiền cuối ngày, lãi tương ứng với ngày bán=>Xem chi tiết:tiền thu và tiền chi, xem chi tiết các khoản thu chi
 	+Lưu thông tin của các ngày=>Sử dụng danh sách liên kết sau đó in chồng lên file txt

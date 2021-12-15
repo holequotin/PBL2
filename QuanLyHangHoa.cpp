@@ -151,6 +151,9 @@ HangHoa& QuanLyHangHoa::operator[](int x){
 }
 //Nhập kho(Chức năng)
 void QuanLyHangHoa::EnterStock(QuanLyChiTieu&a){
+    time_t curr_time;                               
+    curr_time = time(NULL);                //3 dòng ni dùng tạo time
+    char *tm = ctime(&curr_time);
     system("cls");
     do{
     this->Show();
@@ -179,6 +182,9 @@ void QuanLyHangHoa::EnterStock(QuanLyChiTieu&a){
          int add;
             add = _p[index].getPrice() * n;
             a.ChiTien(add);
+            ofstream Fileqltime("QuanLyNhap.txt",ios::app);     //lưu time đang nhap của nv
+            Fileqltime<< "Da nhap "<<n<<" "<<(*this)[index].getName() << " vao luc :" << tm;
+            Fileqltime.close();
          cout<<"Ban co muon nhap them hang[y/n]:";
          cin>>s;
         while (s!="y"&&s!="n")
@@ -186,7 +192,10 @@ void QuanLyHangHoa::EnterStock(QuanLyChiTieu&a){
             cout<<"Chon sai chuc nang, vui long nhap lai:";
             cin>>s;
         }
-        if(s=="y") continue;
+        if(s=="y") {
+            system("cls");
+            continue;
+        }
         else break;
         }
      }

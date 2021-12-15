@@ -1,6 +1,10 @@
-1 Khoa
+1 Quan Ly
 user pass
-2 NVA
+2 Khoa
 user2 pass2
 3 Tin
 user3 pass3
+4 NVA
+user4 pass4
+5 Ho Le Quoc Tin
+holequoctin holequoctin

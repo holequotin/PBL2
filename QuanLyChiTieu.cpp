@@ -1,7 +1,5 @@
 #include"QuanLyChiTieu.h"
-QuanLyChiTieu::QuanLyChiTieu(int a, int b){
-    this->TongTienThu=a;
-    this->TongTienChi=b;
+QuanLyChiTieu::QuanLyChiTieu(){
 }
 QuanLyChiTieu::~QuanLyChiTieu(){}
 void QuanLyChiTieu::ThuTien(int TongTien){
@@ -13,6 +11,7 @@ void QuanLyChiTieu::ThuTien(int TongTien){
         getline(xuattien,str);
         xuattien>>a;
     }
+    xuattien.close();
     a+=TongTien;
     ofstream FileThu("TienThu.txt",ios::trunc);
     FileThu<<"Tong tien da thu:"<<endl;
@@ -29,7 +28,7 @@ void QuanLyChiTieu::ThuTien(int TongTien){
 int QuanLyChiTieu::XuatTienThu(){
     string str;
     int a;
-    cout<<"Tong tien da thu:"<<endl;
+    //cout<<"Tong tien da thu:"<<endl;
     ifstream xuattien("TienThu.txt");
     if(!xuattien.eof()){
         getline(xuattien,str);
@@ -43,10 +42,10 @@ int QuanLyChiTieu::XuatTienThuHD(){
     int a;
     cout<<"Tong tien da thu theo hoa don:"<<endl;
     ifstream xuattien("TienThuHoaDon.txt");
-    if(!xuattien.eof()){
-        getline(xuattien,str);
-        xuattien>>a;
-    }
+    // if(!xuattien.eof()){
+    //     getline(xuattien,str);
+    //     xuattien>>a;
+    // }
     string HD ;
     while (!xuattien.eof())
     {   

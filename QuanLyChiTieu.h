@@ -9,7 +9,7 @@ class QuanLyChiTieu{
         int TongTienThu;
         int TongTienChi;
     public:
-        QuanLyChiTieu(int = 0,int = 0);
+        QuanLyChiTieu();
         ~QuanLyChiTieu();
         void ThuTien(int);
         int XuatTienThu();

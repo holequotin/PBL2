@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<cstring>
+#include<string>
 #include<conio.h>
 #include<cstdio>
 #include<ctime>
@@ -18,6 +19,10 @@ class QuanLyPhienLamViec{
         void TongTienNV();          //hổ trợ hàm trên
         void xuatNV();              //xuất tên nv, để chọn tên khi dùng chuc năng khác
         void xuattimedn(int);       //xuất thời gian nv đăng nhập
-        void xuatTNNV(int);//xuất tiền nv thu trong các ngày có time kèm
-        string getName();         
+        void xuatTNNV(int);         //xuất tiền nv thu trong các ngày có time kèm
+        void xuatHD(int);
+        void reset();
+        string  NhapPass();
+        void KiemTraPass(string);
+        string getName();
 };

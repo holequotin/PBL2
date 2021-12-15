@@ -3,7 +3,9 @@
     QuanLyPhienLamViec::~QuanLyPhienLamViec(){};
 
 int QuanLyPhienLamViec::DangNhap(){
-    string tk,mk,tkmk,str0,str,str1,str2;
+    int id;
+    string tk,mk;
+    string name,user,pass;    
     int a=0,b;
     time_t curr_time;                               
     curr_time = time(NULL);                //3 dòng ni dùng tạo time
@@ -11,31 +13,34 @@ int QuanLyPhienLamViec::DangNhap(){
     do{
     cout<< "Tai Khoan: ";
     cin>> tk;
-    cout<< "Mat Khau: ";
-    cin>> mk;
-    ifstream kiemtra("TenNhanVien.txt");
-    getline(kiemtra,str0);
-    getline(kiemtra,str);
-    getline(kiemtra,str1);
-    getline(kiemtra,str2);
-    if(tk==str1&&mk==str2){
-        _name=str;  //dùng để lưu tên nv đăng nhập, khi xuất tiền dô file thì lấy dùng
+    // cout<< "Mat Khau: ";
+    // cin>> mk;
+    mk=this->NhapPass();
+    ifstream kiemtra("NhanVien.txt");
+    kiemtra>>id;
+    getline(kiemtra,name);
+    string nameUD = name.substr(1);
+    kiemtra>>user;
+    kiemtra>>pass;
+    if(tk==user&&mk==pass){
+        _name=nameUD;  //dùng để lưu tên nv đăng nhập, khi xuất tiền dô file thì lấy dùng
         ofstream Fileqltime("QuanLytime.txt",ios::app);     //lưu time đang nhap của nv
-        Fileqltime<< str << endl << "da dang nhap vao luc :" << tm;
+        Fileqltime<< nameUD << endl << "da dang nhap vao luc :" << tm;
         Fileqltime.close();  
         return 1;
     }
     while (!kiemtra.eof())
     {
-        getline(kiemtra,str0);
-        getline(kiemtra,str);
-        getline(kiemtra,str1);
-        getline(kiemtra,str2);
-        if(tk==str1&&mk==str2){       //check xem tk và mk có trùng ko
+    kiemtra>>id;
+    getline(kiemtra,name);
+    string nameUD = name.substr(1);
+    kiemtra>>user;
+    kiemtra>>pass;
+        if(tk==user&&mk==pass){       //check xem tk và mk có trùng ko
             a++;
-            _name=str;  //dùng để lưu tên nv đăng nhập, khi xuất tiền dô file thì lấy dùng
+            _name=nameUD;  //dùng để lưu tên nv đăng nhập, khi xuất tiền dô file thì lấy dùng
             ofstream Fileqltime("QuanLytime.txt",ios::app);     //lưu time đang nhap của nv
-            Fileqltime<< str << endl << "da dang nhap vao luc :" << tm;
+            Fileqltime<< nameUD << endl << "da dang nhap vao luc :" << tm;
             Fileqltime.close();  
             break;
         }
@@ -44,7 +49,7 @@ int QuanLyPhienLamViec::DangNhap(){
     if(a==0)cout<< "Ban da nhap sai tai khoan hoac mat khau. Vui long nhap lai"; 
     }while(a==0);
     return -1;
-}      
+}    
 void QuanLyPhienLamViec::LuuTruTienNV(int TongTien){
     string str;
     int a;
@@ -78,34 +83,35 @@ void QuanLyPhienLamViec::TongTienNV(){
     Filereset.close();
     ofstream FileThu("TienThuTheoNV.txt",ios::app);
     FileThu<<_name<<endl;   //_name dùng lại
-    FileThu<<"Tong tien NV da thu trong:"<< tm ;                //lưu tiền nv thu trong ngày vào
+    FileThu<<"Tong tien NV "<< _name << " da thu trong : "<< tm ;                //lưu tiền nv thu trong ngày vào
     FileThu<<a<<endl;
     FileThu.close();
 }
 void QuanLyPhienLamViec::xuatNV(){
-    int a;
-    string str0,str,str1,str2;
-    ifstream kiemtra("TenNhanVien.txt");   
+    int id;
+    string name,user,pass;
+    ifstream kiemtra("NhanVien.txt");   
     while (!kiemtra.eof())
     {
-        getline(kiemtra,str0);
-        getline(kiemtra,str);
-        getline(kiemtra,str1);
-        getline(kiemtra,str2);
-        cout<< str0 << ". " << str << "\t";                 //xuất id và name nv
+        kiemtra>>id;
+        getline(kiemtra,name);
+        string nameUD = name.substr(1);
+        kiemtra>>user;
+        kiemtra>>pass;
+        cout<< id << ". " << nameUD << "\t";                 //xuất id và name nv
     }
     kiemtra.close();
 }
 void QuanLyPhienLamViec::xuattimedn(int n){
     int id,a=0;
     string name,user,pass,copy;
-    ifstream xuat("TenNhanVien.txt");
+    ifstream xuat("NhanVien.txt");
     do{
     while (!xuat.eof())
     {
         xuat>>id;
-        xuat>>name;
-        copy=name;                  //kiểm tra id
+        getline(xuat,name);
+        copy = name.substr(1);                //kiểm tra id
         xuat>>user;
         xuat>>pass;
         if(id==n)
@@ -121,7 +127,7 @@ void QuanLyPhienLamViec::xuattimedn(int n){
     while (!open.eof())
     {
         getline(open,name1);            
-        getline(open,tt);    
+        getline(open,tt);
         if(name1==copy)                 //chạy tìm tên nv cần xuất r in ra
         {
             cout<< name1 << endl << tt << endl;
@@ -131,15 +137,15 @@ void QuanLyPhienLamViec::xuattimedn(int n){
     open.close();
 }
 void QuanLyPhienLamViec::xuatTNNV(int n){
-     int id,a=0;
+    int id,a=0;
     string name,user,pass,copy;
-    ifstream xuat("TenNhanVien.txt");
+    ifstream xuat("NhanVien.txt");
     do{
     while (!xuat.eof())
     {
         xuat>>id;
-        xuat>>name;
-        copy=name;                      // kiểm tra id
+        getline(xuat,name);
+        copy = name.substr(1);                     // kiểm tra id
         xuat>>user;
         xuat>>pass;
         if(id==n)
@@ -159,12 +165,124 @@ void QuanLyPhienLamViec::xuatTNNV(int n){
         getline(open,tien);
         if(name1==copy)                 //chạy tìm name giống r in ra
         {
-            cout << tt << tien << endl;
+            cout << tt << "la :" << tien << endl;
         } 
     }
     xuat.close();
     open.close();
 }
+void QuanLyPhienLamViec::xuatHD(int n){
+    int id,a=0;
+    string name,user,pass,copy;
+    ifstream xuat("NhanVien.txt");
+    do{
+    while (!xuat.eof())
+    {
+        xuat>>id;
+        getline(xuat,name);                         // kiểm tra id như các hàm trên
+        copy = name.substr(1);                     // loại bỏ khoảng trắng trc tên
+        xuat>>user;
+        xuat>>pass;
+        if(id==n)
+        {
+            a++;
+            break;
+        } 
+    }
+    if(a==0)cout<<"Ban da nhap sai ID vui long nhap lai";
+    }while(a==0);
+    string line1,line2,line3,line4;
+    ifstream open("HoaDon.txt");
+    //fstream open1("fileNhap.txt",ios::app);
+    while (!open.eof())
+    {   
+        ofstream open1("fileNhap.txt",ios::app);            //dùng 1 file tạm để lưu 1 hoá đơn của nv vào
+        getline(open,line1);
+        if(line1=="Thong tin cua hoa don")                  //lặp khi gặp dòng đầu tiên của hoá đơn, sẽ reset file để thêm 1 HĐ mới
+        {
+            this->reset();
+            open1<<line1<<endl;
+        }
+        else open1<<line1<<endl;                            //ko phải đầu HĐ thì sẽ thêm vào file như bth
+        open1.close();
+        line2= line1.substr(0,4);
+        if(line2=="Nhan")                                   //tại cuối hoá đơn kiểm tra tên có giống với tên nv cần xem k
+        {                                                   
+            line4 = "Nhan vien thu tien: " + copy;
+            if(line1==line4)
+            {
+                ifstream open1("fileNhap.txt");
+                while (!open1.eof())
+                {   
+                    getline(open1,line3);                   //nếu đúng thì in HĐ đã lưu ở file tạm ra
+                    cout<< line3<<endl;
+                }
+                cout<<"==============================="<<endl<<endl;
+                open1.close();
+            }
+        }    
+    }
+    xuat.close();
+    open.close();
+    //open1.close();
+}
 string QuanLyPhienLamViec::getName(){
     return this->_name;
+}
+void QuanLyPhienLamViec::reset(){
+    FILE *f = fopen("fileNhap.txt", "w");
+}
+string QuanLyPhienLamViec::NhapPass()
+{
+    string pass = "";
+    char _ipt;
+    cout << "Mat khau:";
+    while (true)
+    {
+        _ipt = getch();
+        if (_ipt == 13)
+        {
+            cout << endl;
+            return pass;
+        }
+        else if (_ipt == 8 && pass.length() == 0)
+        {
+            continue;
+        }
+        else if (_ipt == 8 && pass.length() != 0)
+        {
+            pass.pop_back();
+            cout << "\b \b";
+            continue;
+        }
+        cout << "*";
+        pass.push_back(_ipt);
+    }
+}
+void QuanLyPhienLamViec::KiemTraPass(string s)
+{
+    int k = 5;
+    string s1;
+    while (k != 0)
+    {
+        s1 = NhapPass();
+        if (s1 == s)
+        {
+            cout << "Complete";
+            return;
+        }
+        else
+        {
+            k--;
+            system("cls");
+            cout << "Wrong Password" << endl
+                 << "Please re-enter your password" << endl
+                 << "remaining time: " << k << endl;
+        }
+    }
+    if (k == 0)
+    {
+        system("cls");
+        cout << "This account has been locked";
+    }
 }

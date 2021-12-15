@@ -1,71 +1,109 @@
 Thong tin cua hoa don
+Ma ban: Dat mang ve
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH07                 Dua xiem		50		90000
+Tong tien: 4500000
+Nhan vien thu tien: 
+===============================
+Thong tin cua hoa don
 Ma ban: Ban so 1
 MAHH             TEN HANG HOA		SO LUONG	DON GIA
-HH02                    Pepsi		10		4000
-HH03                  Hu Tieu		100		15000
-HH04           Ho Le Quoc Tin		98		80000
+HH01               Sting vang		50		5000
+HH05                  Sinh to		100		15000
+Tong tien: 1750000
 Nhan vien thu tien: 
-Tong tien: 9380000
 ===============================
 Thong tin cua hoa don
 Ma ban: Ban so 6
 MAHH             TEN HANG HOA		SO LUONG	DON GIA
-HH04           Ho Le Quoc Tin		7		80000
-HH03                  Hu Tieu		8		15000
-HH01                    Sting		10		5000
-HH02                    Pepsi		20		4000
+HH04                 Quoc Tin		50		100000
+Tong tien: 5000000
 Nhan vien thu tien: 
-Tong tien: 810000
-===============================
-Thong tin cua hoa don
-Ma ban: Ban so 1
-MAHH             TEN HANG HOA		SO LUONG	DON GIA
-HH01                    Sting		10		5000
-HH02                    Pepsi		10		4000
-Tong tien: 90000
-Nhan vien thu tien: Ho Le Quoc Tin
-===============================
-Thong tin cua hoa don
-Ma ban: Ban so 5
-MAHH             TEN HANG HOA		SO LUONG	DON GIA
-HH04           Ho Le Quoc Tin		10		80000
-Tong tien: 800000
-Nhan vien thu tien: Ho Le Quoc Tin
 ===============================
 Thong tin cua hoa don
 Ma ban: Ban so 10
 MAHH             TEN HANG HOA		SO LUONG	DON GIA
-HH03                  Hu Tieu		10		15000
-HH04           Ho Le Quoc Tin		10		80000
-Tong tien: 950000
-Nhan vien thu tien: Ho Le Quoc Tin
-===============================
-Thong tin cua hoa don
-Ma ban: Ban so 1
-MAHH             TEN HANG HOA		SO LUONG	DON GIA
-HH02                    Pepsi		10		4000
-Tong tien: 40000
-Nhan vien thu tien: Tin
-===============================
-Thong tin cua hoa don
-Ma ban: Ban so 10
-MAHH             TEN HANG HOA		SO LUONG	DON GIA
-HH04           Ho Le Quoc Tin		10		80000
-HH03                  Hu Tieu		10		15000
-Tong tien: 950000
-Nhan vien thu tien: Tin
-===============================
-Thong tin cua hoa don
-Ma ban: Ban so 1
-MAHH             TEN HANG HOA		SO LUONG	DON GIA
-HH04           Ho Le Quoc Tin		10		80000
-Tong tien: 800000
-Nhan vien thu tien: QuanLi
+HH05                  Sinh to		900		15000
+Tong tien: 13500000
+Nhan vien thu tien: 
 ===============================
 Thong tin cua hoa don
 Ma ban: Dat mang ve
 MAHH             TEN HANG HOA		SO LUONG	DON GIA
-HH01                    Sting		10		5000
+HH01               Sting vang		300		5000
+Tong tien: 1500000
+Nhan vien thu tien: 
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH01               Sting vang		50		5000
+Tong tien: 250000
+Nhan vien thu tien: Ho Le Quoc Tin
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH01               Sting vang		10		5000
 Tong tien: 50000
+Nhan vien thu tien: Quan Ly
+===============================
+Thong tin cua hoa don
+Ma ban: Dat mang ve
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH07                 Dua xiem		50		90000
+HH03                  Hu Tieu		50		15000
+Tong tien: 5250000
+Nhan vien thu tien: Quan Ly
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH07                 Dua xiem		51		90000
+HH03                  Hu Tieu		51		15000
+Tong tien: 5355000
+Nhan vien thu tien: Quan Ly
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 9
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH05                  Sinh to		500		15000
+Tong tien: 7500000
+Nhan vien thu tien: Quan Ly
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 10
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH05                  Sinh to		1		15000
+Tong tien: 15000
+Nhan vien thu tien: Quan Ly
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH01               Sting vang		2340		5000
+Tong tien: 11700000
+Nhan vien thu tien: Quan Ly
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH07                   tin co		1		10000
+HH01               Sting vang		1		5000
+Tong tien: 15000
+Nhan vien thu tien: Ho Le Quoc Tin
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH05                  Sinh to		20		15000
+Tong tien: 300000
+Nhan vien thu tien: Ho Le Quoc Tin
+===============================
+Thong tin cua hoa don
+Ma ban: Ban so 1
+MAHH             TEN HANG HOA		SO LUONG	DON GIA
+HH05                  Sinh to		80		15000
+Tong tien: 1200000
 Nhan vien thu tien: Ho Le Quoc Tin
 ===============================

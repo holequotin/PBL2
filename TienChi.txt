@@ -1,1 +1,2 @@
-1
+Tong tien da chi:
+755000
