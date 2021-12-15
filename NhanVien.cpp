@@ -1,175 +1,39 @@
-#include"QLNV.h"
-QLNV::QLNV(int n,NhanVien*p){
-    this->_p=p;
-    this->_number=n;
-    ifstream myfile("NhanVien.txt");
-    while (!myfile.eof())
-    {
-        int id;
-        string name;
-        string user,pass;
-        myfile>>id;
-        getline(myfile,name);
-        myfile>>user;
-        myfile>>pass;
-        NhanVien h(id,name,user,pass);
-        this->Add(h);
-    }
-    myfile.close();
+#include"NhanVien.h"
+NhanVien::NhanVien(int id, string name,string user,string pass){
+    this->_id=id;
+    this->_name=name;
+    this->_user=user;
+    this->_pass=pass;
 }
-//Destructor
-QLNV::~QLNV(){}
-
-void QLNV::Add(int id,string name,string user,string pass){
-    NhanVien h1(id,name,user,pass);
-    Add(h1);
+NhanVien::~NhanVien(){};
+void NhanVien::Show(){
+    cout<<_id<<"\t\t"<<_name<<"\t\t"<<_user<<"\t\t"<<_pass<<endl;
 }
-void QLNV::Add(NhanVien h1){
-        if(this->_number==0){
-            this->_p=new NhanVien[_number+1];
-            *(_p+_number)=h1;
-            _number++;
-        }else{
-            NhanVien temp[_number];
-            for(int i=0;i<this->_number;i++){
-                if(((*(_p+i)).getID())==(h1.getID())){
-                    cout<<"Ma hang hoa da ton tai"<<endl;
-                    return;
-                }
-                temp[i]=*(this->_p+i);
-            }
-            _number++;
-            this->_p=new NhanVien[_number];
-            for(int i=0;i<this->_number-1;i++){
-                *(this->_p+i)=temp[i];
-            }
-            *(this->_p+_number-1)=h1;
+void NhanVien::Update(){
+    int n;
+    string s;
+    cout<<"Nhap ten nhan vien:";
+    getline(cin,s);
+    this->_name=s;
+    cout<<"Cap nhat tai khoan:";
+    getline(cin,s);
+    this->_user=s;
+    cout<<"Cap nhat mat khau:";
+    getline(cin,s);
+    this->_pass=s;
 }
+int NhanVien::getID(){
+    return this->_id;
 }
-//Thêm nhiều hàng hóa(Chức năng)
-void QLNV::Addelement(){
-    do{
-        //system("cls");
-        string name,user,x,pass;
-        int id;
-        this->Show();
-        id = _number + 1; 
-        cin.ignore();
-        cout<<"Nhap ten Nhan Vien:";getline(cin,name);
-        name=" "+name;
-        cout<<"Nhap tai khoan:";cin>>user;
-        cout<<"Nhap mat khau:";cin>>pass;
-        //system("cls");
-        this->Add(id,name,user,pass);
-        this->Show();
-        cout<<"Ban co muon them nua khong[y/n]:";
-        cin>>x;
-         while (x!="y"&&x!="n")
-        {
-            cout<<"Chon sai chuc nang, vui long nhap lai:";
-            cin>>x;
-        }
-        if(x=="y") continue;
-        else break;
-    }while(true);
-    
-}  
-NhanVien& QLNV::operator[](int x){
-    return *(this->_p+x);
+string NhanVien::getName(){
+    return this->_name;
 }
-void QLNV::Delete(int s){
-    int k=-1;
-    for(int i=0;i<this->_number;i++){
-        if(s==((*(this->_p+i)).getID())){
-            k=i;
-            break;
-        }
-    }
-    if(k==-1) return;
-    if(this->_number==1){
-        this->Reset();
-        return;
-    }
-    for(int i=k;i<this->_number-1;i++){
-        (_p+i+1)->updeatID();
-        *(_p+i)=*(_p+i+1);
-    }
-    _number--;
+string NhanVien::getUser(){
+    return this->_user;
 }
-//Xóa nhiều hàng hóa(Chức năng)
-void QLNV::Remove(){
-    do{ 
-        system("cls");
-        string x;
-        int s;
-        this->Show();
-        cout<<"Nhap ma nhan vien muon xoa:";cin>>s;
-        this->Delete(s);
-        system("cls");
-        this->Show();
-        cout<<"Da xoa nhan vien!!"<<endl;
-        cout<<"Ban co muon xoa nua khong[y/n]:";
-        cin>>x;
-         while (x!="y"&&x!="n")
-        {
-            cout<<"Chon sai chuc nang, vui long nhap lai:";
-            cin>>x;
-        }
-        if(x=="y") continue;
-        else break;
-    }while(true);
+string NhanVien::getPass(){
+    return this->_pass;
 }
-void QLNV::Show(){
-    cout<<"MANV"<<setw(25)<<"TEN NHAN VIEN"<<"\t\t"<<"TAI KHOAN"<<"\t"<<"MAT KHAU"<<endl;
-    for(int i=0;i<this->_number;i++){
-        cout<<(*(_p+i)).getID()<<setw(25)<<(*(_p+i)).getName()<<"\t\t"<<(*(_p+i)).getUser()
-            <<"\t\t"<<(*(_p+i)).getPass()<<endl;
-    }
-}
-void QLNV::Save(){
-    ofstream myfile("NhanVien.txt");
-    for(int i=0;i<this->getNumber();i++){
-        myfile<<(*(this))[i].getID()<<(*(this))[i].getName()<<"\n"<<(*(this))[i].getUser()<<" "<<(*(this))[i].getPass();
-        if(i!=this->getNumber()-1) myfile<<"\n";
-    }
-}
-int QLNV::getNumber(){
-    return this->_number;
-}
-void QLNV::Reset(){
-    this->_number=0;
-    this->_p=nullptr;
-}
-void QLNV::Update(){
-        do{
-        int i,s; 
-        string x;
-        this->Show();
-        cout<<"Nhap ma nhan vien muon cap nhat:";cin>>s;
-        cin.ignore();
-        for(i=0;i<this->_number;i++){
-            if((*this)[i].getID()==s){
-                (*this)[i].Update();
-                break;
-            }
-        }
-        if(i==this->_number){
-            system("cls");
-            cout<<"Ma nhan vien khong ton tai!!"<<endl;
-            continue;
-        }
-        system("cls");
-        this->Show();
-        cout<<"Da cap nhat nhan vien!!"<<endl;
-        cout<<"Ban co muon cap nhat nua khong[y/n]:";
-        cin>>x;
-         while (x!="y"&&x!="n")
-        {
-            cout<<"Chon sai chuc nang, vui long nhap lai:";
-            cin>>x;
-        }
-        system("cls");
-        if(x=="y") continue;
-        else break;
-    }while(true);
+void NhanVien::updeatID(){
+    this->_id--;
 }
