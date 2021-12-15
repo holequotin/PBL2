@@ -91,7 +91,7 @@ void QLNV::Delete(int s){
         return;
     }
     for(int i=k;i<this->_number-1;i++){
-        (_p+i+1)->UpdateID();
+        (_p+i+1)->updeatID();
         *(_p+i)=*(_p+i+1);
     }
     _number--;
