@@ -1,4 +1,4 @@
-#include"QuanLyNV.h"
+#include"QLNV.h"
 QLNV::QLNV(int n,NhanVien*p){
     this->_p=p;
     this->_number=n;
@@ -54,6 +54,7 @@ void QLNV::Addelement(){
         int id;
         this->Show();
         id = _number + 1; 
+        cin.ignore();
         cout<<"Nhap ten Nhan Vien:";getline(cin,name);
         name=" "+name;
         cout<<"Nhap tai khoan:";cin>>user;
@@ -138,4 +139,37 @@ int QLNV::getNumber(){
 void QLNV::Reset(){
     this->_number=0;
     this->_p=nullptr;
+}
+void QLNV::Update(){
+        do{
+        int i,s; 
+        string x;
+        this->Show();
+        cout<<"Nhap ma nhan vien muon cap nhat:";cin>>s;
+        cin.ignore();
+        for(i=0;i<this->_number;i++){
+            if((*this)[i].getID()==s){
+                (*this)[i].Update();
+                break;
+            }
+        }
+        if(i==this->_number){
+            system("cls");
+            cout<<"Ma nhan vien khong ton tai!!"<<endl;
+            continue;
+        }
+        system("cls");
+        this->Show();
+        cout<<"Da cap nhat nhan vien!!"<<endl;
+        cout<<"Ban co muon cap nhat nua khong[y/n]:";
+        cin>>x;
+         while (x!="y"&&x!="n")
+        {
+            cout<<"Chon sai chuc nang, vui long nhap lai:";
+            cin>>x;
+        }
+        system("cls");
+        if(x=="y") continue;
+        else break;
+    }while(true);
 }
