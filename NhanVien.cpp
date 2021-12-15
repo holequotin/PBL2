@@ -11,12 +11,16 @@ void NhanVien::Show(){
 }
 void NhanVien::Update(){
     int n;
-    cout<<"Nhap ma nhan vien:";cin>>this->_id;
-    cout<<"Nhap ten nhan vien:";cin>>this->_name;
+    string s;
+    cout<<"Nhap ten nhan vien:";
+    getline(cin,s);
+    this->_name=s;
     cout<<"Cap nhat tai khoan:";
-    cin>>this->_user;
+    getline(cin,s);
+    this->_user=s;
     cout<<"Cap nhat mat khau:";
-    cin>>this->_pass;
+    getline(cin,s);
+    this->_pass=s;
 }
 int NhanVien::getID(){
     return this->_id;
@@ -30,6 +34,6 @@ string NhanVien::getUser(){
 string NhanVien::getPass(){
     return this->_pass;
 }
-void NhanVien::UpdateID(){
-    this->_id;
+void NhanVien::updeatID(){
+    this->_id--;
 }
