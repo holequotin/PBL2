@@ -13,8 +13,9 @@ int QuanLyPhienLamViec::DangNhap(){
     do{
     cout<< "Tai Khoan: ";
     cin>> tk;
-    cout<< "Mat Khau: ";
-    cin>> mk;
+    // cout<< "Mat Khau: ";
+    // cin>> mk;
+    mk=this->NhapPass();
     ifstream kiemtra("NhanVien.txt");
     kiemtra>>id;
     getline(kiemtra,name);
@@ -229,4 +230,58 @@ string QuanLyPhienLamViec::getName(){
 }
 void QuanLyPhienLamViec::reset(){
     FILE *f = fopen("fileNhap.txt", "w");
+}
+string QuanLyPhienLamViec::NhapPass()
+{
+    string pass = "";
+    char _ipt;
+    cout << "Mat khau:";
+    while (true)
+    {
+        _ipt = getch();
+        if (_ipt == 13)
+        {
+            cout << endl;
+            return pass;
+        }
+        else if (_ipt == 8 && pass.length() == 0)
+        {
+            continue;
+        }
+        else if (_ipt == 8 && pass.length() != 0)
+        {
+            pass.pop_back();
+            cout << "\b \b";
+            continue;
+        }
+        cout << "*";
+        pass.push_back(_ipt);
+    }
+}
+void QuanLyPhienLamViec::KiemTraPass(string s)
+{
+    int k = 5;
+    string s1;
+    while (k != 0)
+    {
+        s1 = NhapPass();
+        if (s1 == s)
+        {
+            cout << "Complete";
+            return;
+        }
+        else
+        {
+            k--;
+            system("cls");
+            cout << "Wrong Password" << endl
+                 << "Please re-enter your password" << endl
+                 << "remaining time: " << k << endl;
+        }
+    }
+    if (k == 0)
+    {
+        system("cls");
+        cout << "This account has been locked";
+    }
 }
