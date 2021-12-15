@@ -217,6 +217,7 @@ void QuanLyPhienLamViec::xuatHD(int n){
                     getline(open1,line3);                   //nếu đúng thì in HĐ đã lưu ở file tạm ra
                     cout<< line3<<endl;
                 }
+                cout<<"==============================="<<endl<<endl;
                 open1.close();
             }
         }    
