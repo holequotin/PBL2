@@ -137,11 +137,11 @@ void QLNV::Remove(){
     }while(true);
 }
 void QLNV::Show(){
-    cout<<"Id"<< ". " << left <<setw(20)<<"Ten"<<left <<setw(20)<<"Tai khoan"<<left <<setw(20)<<"Mat khau"<<endl;
+    cout<<"Id"<< ". " << left <<setw(34)<<"Ten"<<left <<setw(20)<<"Tai khoan"<<left <<setw(20)<<"Mat khau"<<endl;
 
     for(int i=0;i<this->_number;i++){
 
-        cout<<(*(_p+i)).getID() << ". " <<left <<setw(21)<<(*(_p+i)).getName()<<left <<setw(20)<<(*(_p+i)).getUser()
+        cout<<(*(_p+i)).getID() << ". " <<left <<setw(35)<<(*(_p+i)).getName()<<left <<setw(20)<<(*(_p+i)).getUser()
             <<left <<setw(20)<<(*(_p+i)).getPass()<<endl;
     }
 }

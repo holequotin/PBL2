@@ -6,7 +6,7 @@ khoa khoa
 khoa123 khoa123
 4 Toan
 toan toan
-5 Ho Le Quoc Tin
-holequoctin holequoctin
-6 Nguyen Duy Khoa
+5 Nguyen Duy Khoa
 duykhoa duykhoa
+6 Nguyen Van Hoang Nhan
+hoangnhan hoangnhan
