@@ -13,7 +13,7 @@ class QLNV{
     void Add(NhanVien);                   //2 hàm dùng để thêm nv
     void Add(int,string,string,string);   
     void Addelement();                    //them 1 luc nhieu nv
-    void Delete(int);                     //xoa 1 nv
+    int Delete(int);                     //xoa 1 nv
     void Remove();                        //xoa nhieu nv
     NhanVien& operator[](int);            //đa năng hoá toán tử
     void Reset();                         //reset dsnv
