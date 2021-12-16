@@ -8,7 +8,7 @@ QLNV::QLNV(int n,NhanVien*p){
         int id;
         string name;
         string user,pass;
-        myfile>>id;
+        myfile>>id;                                             //đoc nv từ file và lưu vào dslk
         getline(myfile,name);
         myfile>>user;
         myfile>>pass;
@@ -20,11 +20,11 @@ QLNV::QLNV(int n,NhanVien*p){
 //Destructor
 QLNV::~QLNV(){}
 
-void QLNV::Add(int id,string name,string user,string pass){
+void QLNV::Add(int id,string name,string user,string pass){             //dùng để thêm nv theo các tham số
     NhanVien h1(id,name,user,pass);
     Add(h1);
 }
-void QLNV::Add(NhanVien h1){
+void QLNV::Add(NhanVien h1){                                               //dùng để thêm nv theo tham số nv
         if(this->_number==0){
             this->_p=new NhanVien[_number+1];
             *(_p+_number)=h1;
@@ -64,7 +64,7 @@ void QLNV::Addelement(){
         this->Show();
         cout<<"Ban co muon them nua khong[y/n]:";
         cin>>x;
-         while (x!="y"&&x!="n")
+         while (x!="y"&&x!="n")                                     //kiem tra tk đã tồn tại hay chưa
         {
             cout<<"Chon sai chuc nang, vui long nhap lai:";
             cin>>x;
@@ -162,11 +162,11 @@ void QLNV::Update(){
         int i,s; 
         string x;
         this->Show();
-        cout<<"Nhap ma nhan vien muon cap nhat:";cin>>s;
+        cout<<"Nhap ma nhan vien muon cap nhat:";cin>>s;        //nhap ma nv muon cap nhap
         cin.ignore();
         for(i=0;i<this->_number;i++){
-            if((*this)[i].getID()==s){
-                (*this)[i].Update();
+            if((*this)[i].getID()==s){                          
+                (*this)[i].Update();                            //goi ham update tu class nhanvien de cap nhap
                 break;
             }
         }
