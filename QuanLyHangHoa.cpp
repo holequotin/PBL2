@@ -32,10 +32,10 @@ void QuanLyHangHoa::Save(){
 //Hien thi danh sach hang hoa(Chức năng)
 void QuanLyHangHoa::Show(){
     set_color(14);
-    cout<<"MAHH"<<setw(25)<<"TEN HANG HOA"<<"\t\t"<<"SO LUONG"<<"\t"<<"DON GIA"<<endl;
+    cout<<"\t\t"<<"MAHH"<<setw(25)<<"TEN HANG HOA"<<"\t\t"<<"SO LUONG"<<"\t"<<"DON GIA"<<endl;
     set_color(7);
     for(int i=0;i<this->_number;i++){
-        cout<<(*(_p+i)).getID()<<setw(25)<<(*(_p+i)).getName()<<"\t\t"<<(*(_p+i)).getNumber()
+        cout<<"\t\t"<<(*(_p+i)).getID()<<setw(25)<<(*(_p+i)).getName()<<"\t\t"<<(*(_p+i)).getNumber()
             <<"\t\t"<<(*(_p+i)).getPrice()<<endl;
     }
 }
@@ -74,8 +74,13 @@ void QuanLyHangHoa::AddElement(){
         string id,name,x;
         int number,price;
         this->Show();
-        cout<<"Nhap ma hang hoa";cin>>id;
+        cout<<"Nhap ma hang hoa:";cin>>id;
         cin.ignore();
+        while(Check(id)==false){
+            cout<<"Ma hang hoa da ton tai, vui long nhap lai:";
+            cin>>id;
+            cin.ignore();
+        }
         cout<<"Nhap ten hang hoa:";getline(cin,name);
         name=" "+name;
         cout<<"Nhap so luong hang hoa:";cin>>number;
@@ -320,4 +325,10 @@ void QuanLyHangHoa::Update(){
         if(x=="y") continue;
         else break;
     }while(true);
+}
+bool QuanLyHangHoa::Check(string s){
+    for(int i=0;i<this->_number;i++){
+        if((*this)[i].getID()==s) return  false;
+    }
+    return true;
 }

@@ -1,15 +1,1 @@
-Da nhap 100  Nuoc dua vao luc :Tue Dec 14 16:50:31 2021
-Da nhap 100  Sting vao luc :Tue Dec 14 16:50:31 2021
-Da nhap 20  Pepsi vao luc :Tue Dec 14 17:09:21 2021
-Da nhap 100  Nuoc dua vao luc :Tue Dec 14 20:46:49 2021
-Da nhap 100  Nuoc dua vao luc :Tue Dec 14 20:48:54 2021
-Da nhap 100  Pepsi vao luc :Tue Dec 14 20:48:54 2021
-Da nhap 100  Sting vao luc :Tue Dec 14 20:48:54 2021
-Da nhap 100  Sting vao luc :Tue Dec 14 20:51:04 2021
-Da nhap 100  Nuoc dua vao luc :Tue Dec 14 20:51:04 2021
-Da nhap 100  Do nuong vao luc :Tue Dec 14 20:51:04 2021
-Da nhap 100  Dua xiem vao luc :Wed Dec 15 16:28:33 2021
-Da nhap 50  Sting vang vao luc :Wed Dec 15 16:28:33 2021
-Da nhap 200  Hu Tieu vao luc :Wed Dec 15 16:30:31 2021
-Da nhap 1  Sting vang vao luc :Wed Dec 15 16:58:21 2021
-Da nhap 50  Hu Tieu vao luc :Wed Dec 15 16:58:21 2021
+Da nhap 250  Sting vang vao luc :Thu Dec 16 13:31:11 2021

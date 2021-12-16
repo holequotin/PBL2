@@ -23,17 +23,22 @@ using namespace std;
 //         4:BuonBan();
 // }
 void QuanLyNhanVien(QLNV &nv,QuanLyPhienLamViec &plv){
-    int a,n;
+    int a,n,x=0;
     do{
-    cout<<"Menu chuc nang"<<endl;
-    cout<<"1/Them nhan vien"<<endl
-        <<"2/Xoa nhan vien"<<endl
-        <<"3/Sua nhan vien"<<endl
-        <<"4/Thoi gian nhan vien dang nhap"<<endl
-        <<"5/Hoa don nhan vien da thanh toan"<<endl
-        <<"Chon chuc nang:";
+    system("cls");
+    set_color(14);
+    cout<<"\t\t============================================="<<endl;
+    cout<<"\t\t\t\tQUAN LY NHAN VIEN"<<endl;
+    cout<<"\t\t============================================="<<endl;
+    cout<<"\t\t1/Them nhan vien"
+        <<"\t\t2/Xoa nhan vien"<<endl
+        <<"\t\t3/Sua nhan vien"<<endl
+        <<"\t\t4/Thoi gian nhan vien dang nhap"<<endl
+        <<"\t\t5/Hoa don nhan vien da thanh toan"<<endl
+        <<"\t\t6/Thoat"<<endl;
+    cout<<"Nhap chuc nang:";
     cin>>n;
-    while(n<1||n>5){
+    while(n<1||n>6){
         cout<<"Chuc nang khong ton tai, vui long nhap lai: ";
         cin>>n;
     }
@@ -48,58 +53,68 @@ void QuanLyNhanVien(QLNV &nv,QuanLyPhienLamViec &plv){
         nv.Save();
         break;
     case 3:
+        system("cls");
         nv.Update();
         nv.Save();
         break;
     case 4:
-        plv.xuatNV();
-        cout<< endl <<"nhap id nhan vien: ";
-        cin>>a;
-        plv.xuattimedn( a);
+        plv.xuattimedn();
         break;
     case 5:
-        plv.xuatNV();
-        cout<< endl <<"nhap id nhan vien: ";
-        cin>>a;
-        plv.xuatHD( a);
+        plv.xuatHD();
+        break;
+    case 6:
+        x=1;
         break;
     }
-    cout<<"Ban co muon them nua khong[y/n]:";
-        string x;
-        cin>>x;
-         while (x!="y"&&x!="n")
-        {
-            cout<<"Chon sai chuc nang, vui long nhap lai:";
-            cin>>x;
-        }
-    if(x=="y") continue;
-    else break;
-    }while(true);
+    }while(x!=1);
 }
 void QLTC(QLNV &nv, QuanLyChiTieu &ct, QuanLyPhienLamViec &plv){
-    int n;
+    int n,x=0;
     do{
-    cout<<"Tong tien da thu: "<< ct.XuatTienThu() <<endl;
-    cout<<"Tong tien da chi: " << ct.XuatTienChi() <<endl;
-    plv.xuatNV();
-    cout << endl << "Chon ma so nhan vien muon xem tien da thu: ";
-    cin >> n;
-    while(n<1||n>nv.getNumber()){
-         cout<< endl <<"Chon sai ma so nhan vien, vui long nhap lai: ";
-         cin>>n;
+    // system("cls");
+    // cout<<"Tong tien da thu: "<< ct.XuatTienThu() <<endl;
+    // cout<<"Tong tien da chi: " << ct.XuatTienChi() <<endl;
+    // cout<<"Menu chuc nang"<<endl;
+    // cout<<"1/Thu nhap theo phien lam viec"<<endl
+    //     <<"2/Lam moi tien thu"<<endl
+    //     <<"3/Lam moi tien chi"<<endl
+    //     <<"4/Thoat"<<endl
+    //     <<"Chon chuc nang:";
+    // cin>>n;
+    system("cls");
+    set_color(14);
+    cout<<"\t\t============================================="<<endl;
+    cout<<"\t\t\t\tQUAN LY HANG HOA"<<endl;
+    cout<<"\t\t============================================="<<endl;
+     cout<<"Tong tien da thu: "<< ct.XuatTienThu() <<endl;
+     cout<<"Tong tien da chi: " << ct.XuatTienChi() <<endl;
+    cout<<"\t\t1/Tien thu theo phien lam viec"<<endl
+        <<"\t\t2/Lam moi tien thu"<<endl
+        <<"\t\t3/Lam moi tien chi"<<endl
+        <<"\t\t4/Thoat"<<endl;
+    cout<<"Nhap chuc nang:";
+    cin>>n;
+    while(n<1||n>4){
+        cout<<"Chuc nang khong ton tai, vui long nhap lai: ";
+        cin>>n;
     }
-    plv.xuatTNNV(n);
-    cout<<"Ban co muon them nua khong[y/n]:";
-        string x;
-        cin>>x;
-         while (x!="y"&&x!="n")
-        {
-            cout<<"Chon sai chuc nang, vui long nhap lai:";
-            cin>>x;
-        }
-        if(x=="y") continue;
-        else break;
-    }while(true);
+    switch (n)
+    {
+    case 1:
+        plv.xuatTNNV();
+        break;
+    case 2:
+        ct.resetTienThu();
+        break;
+    case 3:
+        ct.resetTienChi();
+        break;
+    case 4:
+        x=1;
+        break;
+    }
+    }while(x!=1);
 }
 //Hàm quản lí hàng hóa
 void QLHH(QuanLyPhienLamViec &plv,QuanLyHangHoa&hh,QLNV &nv,QuanLyChiTieu &ct){
@@ -107,14 +122,16 @@ void QLHH(QuanLyPhienLamViec &plv,QuanLyHangHoa&hh,QLNV &nv,QuanLyChiTieu &ct){
     while(true)
     {
     system("cls");
-    hh.Show();
-    cout<<"Menu chuc nang:"<<endl;
-    cout<<"1/Nhap hang hoa"<<endl
-        <<"2/Lich su nhap hang hoa"<<endl
-        <<"3/Them hang hoa moi"<<endl
-        <<"4/Xoa hang hoa"<<endl
-        <<"5/Sua hang hoa"<<endl
-        <<"6/Thoat"<<endl;
+    set_color(14);
+    cout<<"\t\t============================================="<<endl;
+    cout<<"\t\t\t\tQUAN LY HANG HOA"<<endl;
+    cout<<"\t\t============================================="<<endl;
+    cout<<"\t\t1/Nhap hang hoa"
+        <<"\t\t\t2/Lich su nhap hang hoa"<<endl
+        <<"\t\t3/Them hang hoa moi"
+        <<"\t\t4/Xoa hang hoa"<<endl
+        <<"\t\t5/Sua hang hoa"
+        <<"\t\t\t6/Thoat"<<endl;
     cout<<"Nhap chuc nang:";
     cin>>n;
     while(n<1||n>6){
@@ -132,6 +149,7 @@ void QLHH(QuanLyPhienLamViec &plv,QuanLyHangHoa&hh,QLNV &nv,QuanLyChiTieu &ct){
     cout<<"Lich su nhap hang hoa:"<<endl;
     string line;
     ifstream input("QuanLyNhap.txt");
+    set_color(15);
 	while(!input.eof())	//khi chưa tới cuối file thì tiếp tục đọc
 	{
 		getline(input,line);
@@ -166,13 +184,16 @@ void QLBH(QuanLyPhienLamViec &plv,QuanLyHangHoa&hh,QuanLyBan b,QuanLyChiTieu &ct
     while(true)
     {
     system("cls");
-    hh.Show();
-    cout<<"Menu chuc nang:"<<endl;
-    cout<<"1/Dat mon"<<endl
-        <<"2/Dat mang ve"<<endl
-        <<"3/Huy mon"<<endl
-        <<"4/Thanh toan"<<endl
-        <<"5/Thoat"<<endl;
+    //hh.Show();
+    set_color(14);
+    cout<<"\t\t============================================="<<endl;
+    cout<<"\t\t\t\tCHUC NANG BAN HANG"<<endl;
+    cout<<"\t\t============================================="<<endl;
+    cout<<"\t\t1/Dat mon"
+        <<"\t\t\t2/Dat mang ve"<<endl
+        <<"\t\t3/Huy mon"
+        <<"\t\t\t4/Thanh toan"<<endl
+        <<"\t\t5/Thoat"<<endl;
     cout<<"Nhap chuc nang:";
     cin>>n;
     while(n<1||n>5){
@@ -205,25 +226,26 @@ void QLBH(QuanLyPhienLamViec &plv,QuanLyHangHoa&hh,QuanLyBan b,QuanLyChiTieu &ct
     }
 }
 //thắc mắc chỗ biến quản lí phiên làm việc
-void QuanLy(){
-    while(true){
-    QuanLyPhienLamViec plv;
+void QuanLy(QuanLyPhienLamViec &plv){
+    system("cls");
     QuanLyHangHoa hh;
     QLNV nv;
     QuanLyChiTieu ct;
     QuanLyBan b;
     int n;
-    plv.DangNhap();
-    int x=0;
-    while(x!=1){
+    //int x=0;
+    while(true){
+    system("cls");
     set_color(14);
-    cout<<"Menu chuc nang"<<endl;
-    cout<<"1/Quan li thu chi"<<endl
-        <<"2/Quan li hang hoa"<<endl
-        <<"3/Quan li nhan vien"<<endl
-        <<"4/Ban hang"<<endl
-        <<"5/Dang xuat"<<endl
-        <<"Chon chuc nang:";
+    cout<<"\t\t========================================================="<<endl;
+    cout<<"\t\t\t\t   CAC CHUC NANG QUAN LI"<<endl;
+    cout<<"\t\t========================================================="<<endl;
+    cout<<"\t\t1/Quan li thu chi"
+        <<"\t\t\t2/Quan li hang hoa"<<endl
+        <<"\t\t3/Quan li nhan vien"
+        <<"\t\t\t4/Ban hang"<<endl
+        <<"\t\t5/Dang xuat"<<endl;
+    cout<<"Chon chuc nang:";
     cin>>n;
     while(n<1||n>5){
         cout<<"Chuc nang khong ton tai, vui long nhap lai: ";
@@ -250,20 +272,75 @@ void QuanLy(){
     break;
     case 5:   
     //hh.Save();
-    x=1;
+    //x=1;
     plv.TongTienNV();
-    break;
-    }
+    return;
     }
     }
 }    
-
+void NhanVien(QuanLyPhienLamViec&plv){
+    QuanLyHangHoa hh;
+    QLNV nv;
+    QuanLyChiTieu ct;
+    QuanLyBan b;
+    int n;
+    while(true)
+    {
+    system("cls");
+    //hh.Show();
+    set_color(14);
+    cout<<"\t\t============================================="<<endl;
+    cout<<"\t\t\t\tCHUC NANG BAN HANG"<<endl;
+    cout<<"\t\t============================================="<<endl;
+    cout<<"\t\t1/Dat mon"
+        <<"\t\t\t2/Dat mang ve"<<endl
+        <<"\t\t3/Huy mon"
+        <<"\t\t\t4/Thanh toan"<<endl
+        <<"\t\t5/Dang xuat"<<endl;
+    cout<<"Nhap chuc nang:";
+    cin>>n;
+    while(n<1||n>5){
+        cout<<"Chuc nang khong ton tai, vui long nhap lai: ";
+        cin>>n;
+    }
+    switch (n)
+    {
+    case 1:
+    system("cls");
+    b.Book(hh);
+    hh.Save();
+    break;
+    case 2:
+    b.Ship(hh,ct,plv);
+    hh.Save();
+    break;
+    case 3:
+    b.Cancel(hh);
+    hh.Save();
+    break;
+    case 4:
+    b.Bill(ct,plv);
+    hh.Save();
+    break;
+    case 5:
+    plv.TongTienNV();
+    return;
+    break;       
+    }
+    }
+}
+void ManHinhChinh(){
+    while(true){
+    system("cls");
+    QuanLyPhienLamViec  plv;
+    int x=plv.DangNhap();
+    if(x==1){
+        QuanLy(plv);
+    }else
+        NhanVien(plv);
+    }
+}
 int main(){
-    // QLNV nv;
-    // QuanLyBan b;
-    // QuanLyPhienLamViec plv;
-    // QuanLyChiTieu ct;
-    // QuanLyHangHoa hh;
-    QuanLy();
+    ManHinhChinh();
    return 0;
 }

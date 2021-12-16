@@ -29,6 +29,7 @@ class QuanLyHangHoa{
     void ExportStock(); //Xuất kho
     HangHoa& operator[](int);
     void Order(string ,int );
+    bool Check(string );//true nếu chưa có, false nếu có rồi
     void Return(string ,int);
     void Reset();
 };

@@ -1,8 +1,8 @@
 Thong tin cua hoa don
 Ma ban: Ban so 1
 MAHH             TEN HANG HOA		SO LUONG	DON GIA
-HH05                  Sinh to		80		15000
-Tong tien: 1200000
-Nhan vien thu tien: Ho Le Quoc Tin
+HH01               Sting vang		100		5000
+Tong tien: 500000
+Nhan vien thu tien: Tin
 ===============================
 

@@ -22,27 +22,28 @@ void Ban::Book(QuanLyHangHoa &p){
         set_color(14);
         int n,i;
         cout<<"Nhap ma hang hoa:";cin>>s;
+        cin.ignore();
+        while (p.Check(s)==true)
+        {
+            cout<<"Ma hang hoa khong ton tai, vui long nhap lai:";
+            cin>>s;
+            cin.ignore();
+        }
         cout<<"Nhap so luong:";cin>>n;
         //check ở danh sách đã gọi trước
         int x=_q.getNumber(s);
         if(x==-1){//trường hợp chưa có trong danh sách
-            if(p.getNumber(s)==-1) {
                 set_color(4);
-                cout<<"Ma hang hoa khong ton tai"<<endl;
-                // if(this->_q.getNumber()==0){
-                // _q.Reset();
-                // this->_status=true;
-                // this->_pay=0;
-                // }
-                set_color(7);
-            }
-            else{
+                if(n>p.getNumber(s)) cout<<"Hang trong kho khong du"<<endl;
+                else{
                 HangHoa h=p.Element(s);
                 h.setNumber(n);
+                //sai chỗ này
                 p.Order(s,n);
                 _q.Add(h);
                 _status=false;
-            }
+                }
+                set_color(15);
         }else{//trường hợp đã có trong danh sách
             set_color(4);
             if(n>p.getNumber(s)) cout<<"Hang trong kho khong du"<<endl;
