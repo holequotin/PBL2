@@ -1,27 +1,268 @@
 #include"QuanLyPhienLamViec.h"
+#include"QuanLyBan.h"
+#include"QLNV.h"
+
 #include<iostream>
 using namespace std;
-void ManHinhChinh(bool dangnhap){
-    if(dangnhap==true) QuanLy();
-    else NhanVien();
-}
+// void ManHinhChinh(bool dangnhap){
+//     if(dangnhap==true) QuanLy();
+//     else NhanVien();
+//}
 //chi ra lam
+// void QuanLy(){
+//     QuanLyPhienLamViec plv;
+//     QuanLyHangHoa hh;
+//     QuanLyNhanVien nv;
+//     QuanLyBan b;
+//     cout<<"Menu chuc nang"<<endl;
+//     cin>>aashfk;
+//     switch...case(x)
+//         1:QuanLyThuChi();
+//         2:QuanLyHangHoa();
+//         3:QuanLyNhanVien();
+//         4:BuonBan();
+// }
+void QuanLyNhanVien(QLNV &nv,QuanLyPhienLamViec &plv){
+    int a,n,x=0;
+    do{
+    system("cls");
+    cout<<"Menu chuc nang"<<endl;
+    cout<<"1/Them nhan vien"<<endl
+        <<"2/Xoa nhan vien"<<endl
+        <<"3/Sua nhan vien"<<endl
+        <<"4/Thoi gian nhan vien dang nhap"<<endl
+        <<"5/Hoa don nhan vien da thanh toan"<<endl
+        <<"6/Thoat"<<endl
+        <<"Chon chuc nang:";
+    cin>>n;
+    while(n<1||n>6){
+        cout<<"Chuc nang khong ton tai, vui long nhap lai: ";
+        cin>>n;
+    }
+    switch (n)
+    {
+    case 1:
+        nv.Addelement();
+        nv.Save();
+        break;
+    case 2:
+        nv.Remove();
+        nv.Save();
+        break;
+    case 3:
+        nv.Update();
+        nv.Save();
+        break;
+    case 4:
+        plv.xuattimedn();
+        break;
+    case 5:
+        plv.xuatHD();
+        break;
+    case 6:
+        x=1;
+        break;
+    }
+    }while(x!=1);
+}
+void QLTC(QLNV &nv, QuanLyChiTieu &ct, QuanLyPhienLamViec &plv){
+    int n,x=0;
+    do{
+    system("cls");
+    cout<<"Tong tien da thu: "<< ct.XuatTienThu() <<endl;
+    cout<<"Tong tien da chi: " << ct.XuatTienChi() <<endl;
+    cout<<"Menu chuc nang"<<endl;
+    cout<<"1/Thu nhap theo phien lam viec"<<endl
+        <<"2/Lam moi tien thu"<<endl
+        <<"3/Lam moi tien chi"<<endl
+        <<"4/Thoat"<<endl
+        <<"Chon chuc nang:";
+    cin>>n;
+    while(n<1||n>4){
+        cout<<"Chuc nang khong ton tai, vui long nhap lai: ";
+        cin>>n;
+    }
+    switch (n)
+    {
+    case 1:
+        plv.xuatTNNV();
+        break;
+    case 2:
+        ct.resetTienThu();
+        break;
+    case 3:
+        ct.resetTienChi();
+        break;
+    case 4:
+        x=1;
+        break;
+    }
+    }while(x!=1);
+}
+//Hàm quản lí hàng hóa
+void QLHH(QuanLyPhienLamViec &plv,QuanLyHangHoa&hh,QLNV &nv,QuanLyChiTieu &ct){
+    int n;
+    while(true)
+    {
+    system("cls");
+    hh.Show();
+    cout<<"Menu chuc nang:"<<endl;
+    cout<<"1/Nhap hang hoa"<<endl
+        <<"2/Lich su nhap hang hoa"<<endl
+        <<"3/Them hang hoa moi"<<endl
+        <<"4/Xoa hang hoa"<<endl
+        <<"5/Sua hang hoa"<<endl
+        <<"6/Thoat"<<endl;
+    cout<<"Nhap chuc nang:";
+    cin>>n;
+    while(n<1||n>6){
+        cout<<"Chuc nang khong ton tai, vui long nhap lai: ";
+        cin>>n;
+    }
+    switch (n)
+    {
+    case 1:
+    hh.EnterStock(ct);
+    hh.Save();
+    break;
+    case 2:
+    {
+    cout<<"Lich su nhap hang hoa:"<<endl;
+    string line;
+    ifstream input("QuanLyNhap.txt");
+	while(!input.eof())	//khi chưa tới cuối file thì tiếp tục đọc
+	{
+		getline(input,line);
+		cout<<line<<endl;
+	}
+    input.close();
+    getch();
+    }
+    break;
+    case 3:
+    hh.AddElement();
+    hh.Save();
+    break;
+    case 4:
+    hh.Remove();
+    hh.Save();
+    break;
+    case 5:
+    system("cls");
+    hh.Update();
+    hh.Save();
+    break;
+    case 6:
+    return;
+    break;        
+    }
+    }
+}
+//Hàm quản lí bán hàng
+void QLBH(QuanLyPhienLamViec &plv,QuanLyHangHoa&hh,QuanLyBan b,QuanLyChiTieu &ct){
+    int n;
+    while(true)
+    {
+    system("cls");
+    hh.Show();
+    cout<<"Menu chuc nang:"<<endl;
+    cout<<"1/Dat mon"<<endl
+        <<"2/Dat mang ve"<<endl
+        <<"3/Huy mon"<<endl
+        <<"4/Thanh toan"<<endl
+        <<"5/Thoat"<<endl;
+    cout<<"Nhap chuc nang:";
+    cin>>n;
+    while(n<1||n>5){
+        cout<<"Chuc nang khong ton tai, vui long nhap lai: ";
+        cin>>n;
+    }
+    switch (n)
+    {
+    case 1:
+    system("cls");
+    b.Book(hh);
+    hh.Save();
+    break;
+    case 2:
+    b.Ship(hh,ct,plv);
+    hh.Save();
+    break;
+    case 3:
+    b.Cancel(hh);
+    hh.Save();
+    break;
+    case 4:
+    b.Bill(ct,plv);
+    hh.Save();
+    break;
+    case 5:
+    return;
+    break;       
+    }
+    }
+}
+//thắc mắc chỗ biến quản lí phiên làm việc
 void QuanLy(){
+    while(true){
     QuanLyPhienLamViec plv;
     QuanLyHangHoa hh;
-    QuanLyNhanVien nv;
+    QLNV nv;
+    QuanLyChiTieu ct;
     QuanLyBan b;
+    int n;
+    plv.DangNhap();
+    int x=0;
+    while(x!=1){
+    system("cls");
+    set_color(14);
     cout<<"Menu chuc nang"<<endl;
-    cin>>aashfk;
-    switch...case(x)
-        1:QuanLyThuChi();
-        2:QuanLyHangHoa();
-        3:QuanLyNhanVien();
-        4:BuonBan();
+    cout<<"1/Quan li thu chi"<<endl
+        <<"2/Quan li hang hoa"<<endl
+        <<"3/Quan li nhan vien"<<endl
+        <<"4/Ban hang"<<endl
+        <<"5/Dang xuat"<<endl
+        <<"Chon chuc nang:";
+    cin>>n;
+    while(n<1||n>5){
+        cout<<"Chuc nang khong ton tai, vui long nhap lai: ";
+        cin>>n;
+    }
+    switch (n)
+
+    {
+    case 1:
+    system("cls");
+    QLTC(nv,ct,plv);
+    break;
+    case 2:
+    system("cls");
+    QLHH(plv,hh,nv,ct);
+    break;
+    case 3:
+    system("cls");
+    QuanLyNhanVien(nv,plv);
+    break;
+    case 4:
+    system("cls");
+    QLBH(plv,hh,b,ct);
+    break;
+    case 5:   
+    //hh.Save();
+    x=1;
+    plv.TongTienNV();
+    break;
+    }
+    }
+    }
 }    
-void NhanVien()
 
 int main(){
-    QuanLyPhienLamViec a;
-    a.DangNhap();//nhả ra
-}    
+    // QLNV nv;
+    // QuanLyBan b;
+    // QuanLyPhienLamViec plv;
+    // QuanLyChiTieu ct;
+    // QuanLyHangHoa hh;
+    QuanLy();
+   return 0;
+}
