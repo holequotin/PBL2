@@ -5,6 +5,7 @@
 #include<conio.h>
 #include<cstdio>
 #include<ctime>
+#include<iomanip>
 #pragma once
 using namespace std;
 class QuanLyPhienLamViec{
@@ -18,11 +19,10 @@ class QuanLyPhienLamViec{
         void LuuTruTienNV(int);     //lưu trữ tiền nv thu được trong 1 ngày
         void TongTienNV();          //hổ trợ hàm trên
         void xuatNV();              //xuất tên nv, để chọn tên khi dùng chuc năng khác
-        void xuattimedn(int);       //xuất thời gian nv đăng nhập
-        void xuatTNNV(int);         //xuất tiền nv thu trong các ngày có time kèm
-        void xuatHD(int);
+        void xuattimedn();       //xuất thời gian nv đăng nhập
+        void xuatTNNV();         //xuất tiền nv thu trong các ngày có time kèm
+        void xuatHD();
         void reset();
         string  NhapPass();
-        void KiemTraPass(string);
         string getName();
 };
