@@ -1,5 +1,7 @@
 #include"QuanLyChiTieu.h"
-QuanLyChiTieu::QuanLyChiTieu(){
+QuanLyChiTieu::QuanLyChiTieu(int TongTienChi, int TongTienThu){
+    this->TongTienChi=TongTienChi;
+    this->TongTienThu=TongTienThu;
 }
 QuanLyChiTieu::~QuanLyChiTieu(){}
 void QuanLyChiTieu::ThuTien(int TongTien){
@@ -34,18 +36,13 @@ int QuanLyChiTieu::XuatTienThu(){
         getline(xuattien,str);
         xuattien>>a;
     }
-    cout<< a;
-    return 0;
+    return a;
 }
 int QuanLyChiTieu::XuatTienThuHD(){
     string str;
     int a;
     cout<<"Tong tien da thu theo hoa don:"<<endl;
     ifstream xuattien("TienThuHoaDon.txt");
-    // if(!xuattien.eof()){
-    //     getline(xuattien,str);
-    //     xuattien>>a;
-    // }
     string HD ;
     while (!xuattien.eof())
     {   
@@ -73,8 +70,14 @@ int QuanLyChiTieu::XuatTienChi(){
     return a;
 }
 void QuanLyChiTieu::resetTienThu(){
-    FILE *f = fopen("TienThu.txt", "w");
+    ofstream FileThu("TienThu.txt",ios::trunc);
+    FileThu<<"Tong tien da thu:"<<endl;
+    FileThu<<"0";
+    FileThu.close();
 }
-void QuanLyChiTieu::resetTienThuHD(){
-    FILE *f = fopen("TienThuHoaDon.txt", "w");
+void QuanLyChiTieu::resetTienChi(){
+    ofstream FileThu("TienChi.txt",ios::trunc);
+    FileThu<<"Tong tien da chi:"<<endl;
+    FileThu<<"0";
+    FileThu.close();
 }
