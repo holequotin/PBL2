@@ -98,65 +98,101 @@ void QuanLyPhienLamViec::xuatNV(){
         string nameUD = name.substr(1);
         kiemtra>>user;
         kiemtra>>pass;
-        cout<< id << ". " << nameUD << "\t";                 //xuất id và name nv
+        cout<< id << ". " << nameUD << "\t\t";                 //xuất id và name nv
     }
     kiemtra.close();
 }
-void QuanLyPhienLamViec::xuattimedn(int n){
-    int id,a=0;
-    string name,user,pass,copy;
-    ifstream xuat("NhanVien.txt");
+void QuanLyPhienLamViec::xuattimedn(){
+    system("cls");
     do{
-    while (!xuat.eof())
-    {
-        xuat>>id;
-        getline(xuat,name);
-        copy = name.substr(1);                //kiểm tra id
-        xuat>>user;
-        xuat>>pass;
-        if(id==n)
+    int id,a=0,n,p=0;
+    string name,user,pass,copy;
+        do{
+        ifstream xuat("NhanVien.txt");
+        this->xuatNV();
+        cout<< endl <<"nhap id nhan vien: ";
+        cin >> n;
+        while (!xuat.eof())
         {
-            a++;
-            break;
-        } 
-    }
-    if(a==0)cout<<"Ban da nhap sai ID vui long nhap lai";
-    }while(a==0);
-    string name1,tt;
-    ifstream open("QuanLytime.txt");
-    while (!open.eof())
-    {
-        getline(open,name1);            
-        getline(open,tt);
-        if(name1==copy)                 //chạy tìm tên nv cần xuất r in ra
+            xuat>>id;
+            getline(xuat,name);
+            copy = name.substr(1);                //kiểm tra id
+            xuat>>user;
+            xuat>>pass;
+            if(id==n)
+            {
+                a++;
+                break;
+            } 
+        }
+        system("cls");
+        if(a==0)
+        {   
+            //system("cls");
+            cout<<"Ban da nhap sai ID vui long nhap lai"<<endl;
+        }
+        xuat.close();
+        }while(a==0);   
+        string name1,tt;
+        ifstream open("QuanLytime.txt");
+        while (!open.eof())
         {
-            cout<< name1 << endl << tt << endl;
-        } 
+            getline(open,name1);            
+            getline(open,tt);
+            if(name1==copy)                 //chạy tìm tên nv cần xuất r in ra
+            {   
+                p++;
+                cout<< name1 << endl << tt << endl;
+            } 
+        }
+        open.close();
+        if(p==0)cout<<"Nhan vien "<< copy << " chua dang nhap lan nao."<<endl;
+    cout<<"Ban co muon xem nua khong[y/n]:";
+    string x;
+    cin>>x;
+    while (x!="y"&&x!="n")
+    {
+        cout<<"Chon sai chuc nang, vui long nhap lai:";
+        cin>>x;
     }
-    xuat.close();
-    open.close();
+    if(x=="y") continue;
+    else break;
+    }while(true);
 }
-void QuanLyPhienLamViec::xuatTNNV(int n){
-    int id,a=0;
+void QuanLyPhienLamViec::xuatTNNV(){
+    do{
+    system("cls");
+    int id,a=0,n;
     string name,user,pass,copy;
     ifstream xuat("NhanVien.txt");
     do{
-    while (!xuat.eof())
-    {
-        xuat>>id;
-        getline(xuat,name);
-        copy = name.substr(1);                     // kiểm tra id
-        xuat>>user;
-        xuat>>pass;
-        if(id==n)
+        ifstream xuat("NhanVien.txt");
+        this->xuatNV();
+        cout<< endl <<"nhap id nhan vien muon xem thu nhap theo phien lam viec: ";
+        cin >> n;
+        while (!xuat.eof())
         {
-            a++;
-            break;
-        } 
-    }
-    if(a==0)cout<<"Ban da nhap sai ID vui long nhap lai";
-    }while(a==0);
+            xuat>>id;
+            getline(xuat,name);
+            copy = name.substr(1);                //kiểm tra id
+            xuat>>user;
+            xuat>>pass;
+            if(id==n)
+            {
+                a++;
+                break;
+            } 
+        }
+        system("cls");
+        if(a==0)
+        {   
+            //system("cls");
+            cout<<"Ban da nhap sai ID vui long nhap lai"<<endl;
+        }
+        xuat.close();
+        }while(a==0); 
     string name1,tt,tien;
+    int p=0;
     ifstream open("TienThuTheoNV.txt");
     while (!open.eof())
     {
@@ -165,35 +201,59 @@ void QuanLyPhienLamViec::xuatTNNV(int n){
         getline(open,tien);
         if(name1==copy)                 //chạy tìm name giống r in ra
         {
+            p++;
             cout << tt << "la :" << tien << endl;
         } 
+        
     }
-    xuat.close();
+    if(p==0)cout<<"Nhan vien " << copy << " chua co thu nhap."<<endl;
     open.close();
+        cout<<"Ban co muon xem nua khong[y/n]:";
+    string x;
+    cin>>x;
+    while (x!="y"&&x!="n")
+    {
+        cout<<"Chon sai chuc nang, vui long nhap lai:";
+        cin>>x;
+    }
+    if(x=="y") continue;
+    else break;
+    }while(true);
 }
-void QuanLyPhienLamViec::xuatHD(int n){
-    int id,a=0;
+void QuanLyPhienLamViec::xuatHD(){
+    do{
+    system("cls");
+    int id,a=0,n,p=0;
     string name,user,pass,copy;
     ifstream xuat("NhanVien.txt");
     do{
-    while (!xuat.eof())
-    {
-        xuat>>id;
-        getline(xuat,name);                         // kiểm tra id như các hàm trên
-        copy = name.substr(1);                     // loại bỏ khoảng trắng trc tên
-        xuat>>user;
-        xuat>>pass;
-        if(id==n)
+        ifstream xuat("NhanVien.txt");
+        this->xuatNV();
+        cout<< endl <<"nhap id nhan vien: ";
+        cin >> n;
+        while (!xuat.eof())
         {
-            a++;
-            break;
-        } 
-    }
-    if(a==0)cout<<"Ban da nhap sai ID vui long nhap lai";
-    }while(a==0);
+            xuat>>id;
+            getline(xuat,name);
+            copy = name.substr(1);                //kiểm tra id
+            xuat>>user;
+            xuat>>pass;
+            if(id==n)
+            {
+                a++;
+                break;
+            } 
+        }
+        system("cls");
+        if(a==0)
+        {   
+            //system("cls");
+            cout<<"Ban da nhap sai ID vui long nhap lai"<<endl;
+        }
+        xuat.close();
+        }while(a==0);  
     string line1,line2,line3,line4;
     ifstream open("HoaDon.txt");
-    //fstream open1("fileNhap.txt",ios::app);
     while (!open.eof())
     {   
         ofstream open1("fileNhap.txt",ios::app);            //dùng 1 file tạm để lưu 1 hoá đơn của nv vào
@@ -210,7 +270,8 @@ void QuanLyPhienLamViec::xuatHD(int n){
         {                                                   
             line4 = "Nhan vien thu tien: " + copy;
             if(line1==line4)
-            {
+            {   
+                p++;
                 ifstream open1("fileNhap.txt");
                 while (!open1.eof())
                 {   
@@ -222,9 +283,19 @@ void QuanLyPhienLamViec::xuatHD(int n){
             }
         }    
     }
-    xuat.close();
     open.close();
-    //open1.close();
+    if(p==0)cout<<"Nhan vien "<< copy <<" chua thanh toan lan nao."<<endl;
+    cout<<"Ban co muon xem nua khong[y/n]:";
+    string x;
+    cin>>x;
+    while (x!="y"&&x!="n")
+    {
+        cout<<"Chon sai chuc nang, vui long nhap lai:";
+        cin>>x;
+    }
+    if(x=="y") continue;
+    else break;
+    }while(true);
 }
 string QuanLyPhienLamViec::getName(){
     return this->_name;
@@ -236,7 +307,7 @@ string QuanLyPhienLamViec::NhapPass()
 {
     string pass = "";
     char _ipt;
-    cout << "Mat khau:";
+    cout << "Mat khau: ";
     while (true)
     {
         _ipt = getch();
